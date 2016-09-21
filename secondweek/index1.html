@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+a{text-decoration:none;}
+*{margin:0;padding:0;}
+body{background:url(./images/bg-body.jpg) no-repeat;background-color:black;}
+.header{width:100%;height:150px;position:relative;}
+.header>img{position:relative;left:200px;top:30px;}
+.search{position:absolute;right:150px;top:10px;}
+.search>input{background:black;color:orange;padding:5px;border:1px solid brown;height:18px;position:relative;
+top:-10px;}
+.contact{position:absolute;right:150px;top:50px;color:white;}
+.contact img{cursor:pointer;}
+
+.nav{width:1000px;margin:0 150px;position:relative;}
+.navbar{float:right;margin-right:60px;}
+.navbar ul{list-style:none;}
+.navbar ul li{float:left;margin:0 5px;width:100px;text-align:center;
+padding:5px;}
+.navbar ul li a{color:white;text-decoration:none;font-size:20px;font-style:italic;font-weight:bold;
+text-shadow:5px 5px 5px black;}
+.navbar ul li:hover{background:url(./images/bg-main-navigation.png);}
+.prev{position:absolute;left:60px;bottom:10px;cursor:pointer;z-index:1;}
+.next{position:absolute;right:160px;bottom:10px;cursor:pointer;z-index:1;}
+
+.slider{position:absolute;top:45px;left:140px;width:802px;overflow:hidden;}
+.slider ul{list-style:none;width:4010px;position:relative;}
+.slider ul li{float:left;position:relative;width:632px;margin-right:170px;}
+.slider ul li>img{border:1px solid white;}
+.bubble{position:absolute;right:-180px;top:0px;}
+.bubble .bubble_title{position:absolute;top:18px;right:30px;}
+.bubble .bubble_title a{color:brown;font-weight:bold;}
+.bubble .bubble_title a:hover{color:white;}
+.bubble .bubble_content{position:absolute;top:50px;width:250px;right:15px;font-size:14px;}
+.bubble .bubble_comments{position:absolute;bottom:20px;right:20px;text-indent:30px;font-size:10px;
+color:orange;}
+.bubble .bubble_comments span{color:white;display:block;font-size:30px;text-indent:12px;
+font-weight:bold;}
+
+.body{width:910px;position:relative;background:white;margin:15px 150px;padding:10px;
+height:auto;float:left;border-radius:10px;}
+.body .body_content{float:left;width:450px;position:relative;margin:10px 0px;}
+.body .body_content>img{border:1px solid orange;}
+.body .body_page{position:absolute;right:0px;bottom:0px;}
+.body .body_content .body_content_caption{position:absolute;bottom:30px;}
+.body .body_content .body_content_caption p:first-child{background:orange;color:brown;font-size:20px;
+padding:5px;font-weight:bold;cursor:pointer;width:300px;}
+.body .body_content .body_content_caption p:first-child:hover{color:white;}
+.body .body_content .body_content_caption p:last-child{background:white;font-size:10px;padding:3px;
+border:1px solid orange;width:275px;}
+.body .body_content .body_bubble{position:absolute;right:-10px;top:0;}
+.body .body_content .body_bubble p:nth-of-type(1){position:absolute;width:150px;right:30px;top:10px;
+color:white;font-size:14px;}
+.body .body_content .body_bubble p:nth-of-type(2){position:absolute;right:99px;bottom:27px;font-size:12px;
+color:orange;text-indent:15px;}
+.body .body_content .body_bubble p:nth-of-type(2) span{color:white;font-weight:bold;display:block;font-size:20px;}
+
+.footer{position:relative;width:910px;float:left;margin:5px 150px;background:url(./images/bg-footer.jpg);}
+.footer .footer_pages{width:200px;margin-right:70px;float:left;}
+.footer .footer_pages:nth-of-type(3){width:350px;margin-right:0px;position:relative;top:-3px;}
+.footer .footer_pages h6{color:orange;font-weight:bold;}
+.footer .footer_pages .footer_pages_content{width:200px;padding:15px 25px;border:1px solid #303030;
+border-radius:5px;position:relative;background:rgba(0,0,0,0.5);}
+.footer .footer_pages:nth-of-type(3) .footer_pages_content{width:340px;}
+.footer .footer_pages .footer_pages_content>img{position:absolute;bottom:-1px;right:-1px;}
+.footer .footer_pages .footer_pages_content ul{list-style:none;}
+.footer .footer_pages .footer_pages_content ul li{color:white;font-size:13px;line-height:20px;
+cursor:pointer;}
+.footer .footer_pages .footer_pages_content ul li img{display:none;}
+.footer .footer_pages .footer_pages_content ul li:hover{color:red;}
+.footer .footer_pages .menu{display:inline-block;cursor:pointer;color:gray;margin-right:5px;}
+.footer_pages_content p{color:white;cursor:pointer;font-size:13px;line-height:20px;}
+.footer_pages_content p:hover{color:red;}
+
+.footer .realfooter{width:940px;clear:left;position:relative;top:30px;}
+.footer .realfooter .underline{height:1px;background:#303030;}
+.footer .realfooter ul{list-style:none;position:relative;top:10px;}
+.footer .realfooter ul li{float:left;color:#4A4A4A;}
+.footer .realfooter ul li a{color:#4A4A4A;padding:5px;}
+.footer .realfooter ul li a:hover{color:orange;}
+.footer .realfooter p{color:#4A4A4A;position:absolute;bottom:-50px;right:0px;}
+
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>HTML5標準頁面</title>
+<script src="jquery-3.0.0.min.js"></script>
+<script>
+$(function(){
+	var slider_count = 0;
+	$('.next').click(function(){
+		slider_count++;
+		if(slider_count==5){
+			slider_count = 0;
+		}
+		$('.slider ul').animate({
+			left:'-'+slider_count*802+'px'
+		});	
+	});
+	$('.prev').click(function(){
+		slider_count--;
+		if(slider_count==-1){
+			slider_count = 4;
+		}
+		$('.slider ul').animate({
+			left:'-'+slider_count*802+'px'
+		});
+		
+	});
+	$('.footer_pages_content ul li').hover(function(){
+		$(this).find('img').css('display','inline');
+	},function(){
+		$(this).find('img').css('display','none');
+	});
+	$('.menu').click(function(){
+		var old_html = $(this).html()
+		$(this).siblings('.menu').css('color','gray').find('div').remove();
+		$(this).css('color','orange').html(old_html+'<div style="text-align:center;"><img src="./images/tab-arrow.png"/></div>');
+		switch($(this).index()){
+			case 0:
+				$(this).siblings('.footer_pages_content').find('p').html('First Page');
+				break;
+			case 1:
+				$(this).siblings('.footer_pages_content').find('p').html('Second Page');
+				break;
+			case 2:
+				$(this).siblings('.footer_pages_content').find('p').html('Third Page');
+				break;
+		}
+		
+	});
+});
+</script>
+</head>
+<body>
+    <div class="header">
+		<img src="./images/logo.png"/>
+		<div class="search">
+			<input type="text" value="Looking for something?"/>
+			<img src="./images/search-btn.png"/>
+		</div>
+		<div class="contact">
+			FOLLOW US
+			<img src="./images/icons/twitter_16.png"/>
+			<img src="./images/icons/facebook_16.png"/>
+			<img src="./images/icons/technorati_16.png"/>
+			<img src="./images/icons/rss_16.png"/>
+		</div>
+    </div>
+    <div class="nav">
+		<div class="navbar">
+			<ul>
+				<li style="background:url(./images/bg-main-navigation.png);"><a href="#">Home</a></li>
+				<li><a href="#">About us</a></li>
+				<li><a href="#">Contact us</a></li>
+			</ul>
+		</div>
+		<img src="./images/bg-banner.jpg"/>
+		<div class="prev">
+			<img src="./images/btn-prev.png"/>
+		</div>
+		<div class="next">
+			<img src="./images/btn-next.png"/>
+		</div>
+		<div class="slider">
+			<ul>
+				<li>
+					<img src="./images/banner/01.jpg"/>
+					<div class="bubble">
+						<img src="./images/bg-bubble.png"/>
+						<p class="bubble_title"><a href="#">POST TITLE1</a></p>
+						<p class="bubble_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+						<p class="bubble_comments"><span>29</span>Comments</p>
+					</div>
+				</li>
+				<li>
+					<img src="./images/banner/02.jpg"/>
+					<div class="bubble">
+						<img src="./images/bg-bubble.png"/>
+						<p class="bubble_title"><a href="#">POST TITLE2</a></p>
+						<p class="bubble_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+						<p class="bubble_comments"><span>29</span>Comments</p>
+					</div>
+				</li>
+				<li>
+					<img src="./images/banner/03.jpg"/>
+					<div class="bubble">
+						<img src="./images/bg-bubble.png"/>
+						<p class="bubble_title"><a href="#">POST TITLE3</a></p>
+						<p class="bubble_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+						<p class="bubble_comments"><span>29</span>Comments</p>
+					</div>
+				</li>
+				<li>
+					<img src="./images/banner/04.jpg"/>
+					<div class="bubble">
+						<img src="./images/bg-bubble.png"/>
+						<p class="bubble_title"><a href="#">POST TITLE4</a></p>
+						<p class="bubble_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+						<p class="bubble_comments"><span>29</span>Comments</p>
+					</div>
+				</li>
+				<li>
+					<img src="./images/banner/05.jpg"/>
+					<div class="bubble">
+						<img src="./images/bg-bubble.png"/>
+						<p class="bubble_title"><a href="#">POST TITLE5</a></p>
+						<p class="bubble_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+						<p class="bubble_comments"><span>29</span>Comments</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+    </div>
+	<div class="body">
+		<div class="body_content">
+			<img src="./images/posts/01.jpg"/>
+			<div class="body_content_caption">
+				<p>Lorem Ipsum Post Title</p>
+				<p>Comics, Movies, Latest Launchs, Lorem Ipsum Category</p>
+			</div>
+			<div class="body_bubble">
+				<img src="./images/bg-post-content.png"/>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+				<p><span>29</span>Comments</p>
+			</div>
+		</div>
+		<div class="body_content">
+			<img src="./images/posts/02.jpg"/>
+			<div class="body_content_caption">
+				<p>Lorem Ipsum Post Title</p>
+				<p>Comics, Movies, Latest Launchs, Lorem Ipsum Category</p>
+			</div>
+			<div class="body_bubble">
+				<img src="./images/bg-post-content.png"/>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+				<p><span>29</span>Comments</p>
+			</div>
+		</div>
+		<div class="body_content">
+			<img src="./images/posts/03.jpg"/>
+			<div class="body_content_caption">
+				<p>Lorem Ipsum Post Title</p>
+				<p>Comics, Movies, Latest Launchs, Lorem Ipsum Category</p>
+			</div>
+			<div class="body_bubble">
+				<img src="./images/bg-post-content.png"/>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+				<p><span>29</span>Comments</p>
+			</div>
+		</div>
+		<div class="body_content">
+			<img src="./images/posts/04.jpg"/>
+			<div class="body_content_caption">
+				<p>Lorem Ipsum Post Title</p>
+				<p>Comics, Movies, Latest Launchs, Lorem Ipsum Category</p>
+			</div>
+			<div class="body_bubble">
+				<img src="./images/bg-post-content.png"/>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam
+Posted by Admin, Apr 14</p>
+				<p><span>29</span>Comments</p>
+			</div>
+		</div>
+		<img class="body_page" src="./images/content-page-curl.jpg"/>
+	</div>
+	<div class="footer">
+		<div class="footer_pages">		
+			<h6>CATEGORIES</h6>
+			<div class="footer_pages_content">
+				<ul>
+					<li><img src="./images/arrow.png"/>Lorem ipsum dolor sit amet</li>
+					<li><img src="./images/arrow.png"/>Consectetur adipisicing elit</li>
+					<li><img src="./images/arrow.png"/>Sed do eiusmod tempor</li>
+					<li><img src="./images/arrow.png"/>Incididunt ut labore</li>
+					<li><img src="./images/arrow.png"/>Et dolore magna aliqua</li>
+					<li><img src="./images/arrow.png"/>Ut enim ad minim veniam</li>
+					<li><img src="./images/arrow.png"/>Lorem ipsum</li>
+					<li><img src="./images/arrow.png"/>Dolor sit amet</li>
+					<li><img src="./images/arrow.png"/>Consectetur adipisicing</li>
+				</ul>
+				<img src="./images/widget-curl.jpg"/>
+			</div>					
+		</div>
+		<div class="footer_pages">		
+			<h6>ARCHIVE</h6>
+			<div class="footer_pages_content">
+				<ul>
+					<li><img src="./images/arrow.png"/>January 2011</li>
+					<li><img src="./images/arrow.png"/>February 2011</li>
+					<li><img src="./images/arrow.png"/>March 2011</li>
+					<li><img src="./images/arrow.png"/>May 2011</li>
+					<li><img src="./images/arrow.png"/>June 2011</li>
+					<li><img src="./images/arrow.png"/>July 2011</li>
+				</ul>
+				<img src="./images/widget-curl.jpg"/>
+			</div>					
+		</div>
+		<div class="footer_pages">		
+			<h6 class="menu" style="color:orange;">POPULAR POSTS<div style="text-align:center;"><img src="./images/tab-arrow.png"/></div></h6>
+			<h6 class="menu">RECENT POSTS</h6>
+			<h6 class="menu">RECENT COMMENTS</h6>
+			<div class="footer_pages_content">
+				<p>First Page</p>
+				<p>First Page</p>
+				<p>First Page</p>
+				<p>First Page</p>
+				<p>First Page</p>
+				<p>First Page</p>
+				<p>First Page</p>
+				<p>First Page</p>
+				<img src="./images/widget-curl.jpg"/>
+			</div>					
+		</div>
+		<div class="realfooter">
+			<div class="underline"></div>
+			<ul>
+				<li><a href="#">Home</a>|</li>
+				<li><a href="#">About us</a>|</li>
+				<li><a href="#">Contact us</a>|</li>
+				<li><a href="#">Privacy Policy</a>|</li>
+				<li><a href="#">Sitemap</a></li>
+			</ul>
+			<p>Tuts+</p>
+		</div>
+	</div>
+</body>
+</html>
