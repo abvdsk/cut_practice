@@ -1,0 +1,283 @@
+<!DOCTIPE HTML>
+<html>
+<style>
+body{
+	margin:0;
+	padding:0;
+	background:gainsboro;
+}
+
+.header{
+	width:100%;
+}
+.header ul{
+	list-style:none;
+	background:firebrick;
+	text-align:center;
+	padding:0px;
+	font-size:20px;
+	margin:0;
+}
+.header ul p{
+	margin:0;
+	padding:10px 0px;
+}
+.header ul p img{
+	cursor:pointer;
+}
+.header ul li{
+	background:#444444;
+	padding:20px;
+	border-bottom:1px solid dimgray;
+	display:none;
+}
+.header ul li.largeNav{
+	height:20px;
+	background:firebrick;
+	display:none;
+}
+.header ul li.active a{
+	color:black;
+}
+.header ul li.active{
+	background:whitesmoke;
+	border-radius:3px;
+}
+.header ul li a{
+	text-decoration:none;
+	color:white;
+	font-weight:bold;
+}
+.content{
+	width:100%;
+	text-align:center;
+	background:gainsboro;
+	border-bottom:3px solid firebrick;
+}
+.content h1{
+	margin:0;
+	padding-top:20px;
+	color:firebrick;
+	cursor:pointer;
+}
+.content h1:hover{
+	color:black;
+}
+.content .gallery{
+	position:relative;
+	width:90%;
+	padding:10px;
+	background:white;
+	margin:30px auto;
+	color:firebrick;
+	border:1px solid silver;
+}
+.content .gallery .cover{
+	width:100%;
+	height:100%;
+	background:firebrick;
+	z-index:1;
+	position:absolute;
+	top:0;
+	left:0;
+	opacity:0;
+}
+.content .gallery .cover img{
+	width:30px;
+	height:30px;
+	margin:35% auto;
+	cursor:pointer;
+	border:1px solid silver;
+	border-radius:5px;
+}
+.content .gallery img{
+	width:100%;
+}
+.content .gallery p{
+	margin:10px 0 0 0;
+	font-size:20px;
+}
+.content .gallery:last-of-type{
+	margin-bottom:70px;
+}
+
+.footer{
+	background:gainsboro;
+	padding:20px;
+	text-align:center;
+	color:gray;
+}
+.footer a{
+	text-decoration:none;
+	color:firebrick;
+}
+
+@media screen and (min-width:700px){
+	.content .gallery{
+		width:40%;
+		display:inline-block;
+		margin:20px;
+	}
+	.content  [class*="row"]{
+		display:inline;
+	}
+	.content .gallery:last-of-type{
+		margin-bottom:0px;
+	}
+	.content .row3 .gallery:last-of-type{
+		margin-bottom:100px;
+	}
+}
+
+@media screen and (min-width:900px){
+	.content .gallery{
+		width:12%;
+		display:inline-block;
+		margin:20px;
+	}
+	.content .gallery p{
+		font-size:17px;
+	}
+	.content  [class*="row"]{
+		display:inline-block;
+	}
+	.header ul .smallNav{
+		display:none;
+	}
+	.header ul li.largeNav{
+		display:inline-block;
+		border:none;
+		padding:10px;
+		margin:10px 20px;
+	}
+	.header ul li.largeNav a{
+		font-weight:normal;
+	}
+}
+
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>HTML5標準頁面</title>
+<script src="jquery-3.0.0.min.js"></script>
+<script>
+$(function(){
+	$('.header ul p img').click(function(){
+		$('.header ul li.smallNav').slideToggle();
+	});
+	$('.header ul li.largeNav').click(function(){
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');
+	});
+	$('.content .gallery').hover(function(){
+		$(this).find('.cover').stop().animate({
+			'opacity':'0.9',
+		});
+		},function(){
+			$(this).find('.cover').stop().animate({
+				'opacity':'0',
+			});
+		}
+	);
+});
+</script>
+</head>
+<body>
+	<div class="header">
+		<ul>
+			<li class="smallNav"><a href="#">Gallery</a></li>
+			<li class="smallNav"><a href="#">Products</a></li>
+			<li class="smallNav"><a href="#">Services</a></li>
+			<li class="smallNav"><a href="#">About Us</a></li>
+			<li class="smallNav"><a href="#">Contact Us</a></li>
+			<p class="smallNav"><img src="./images/header_1.png"/></p>
+			<li class="largeNav active"><a href="#">Gallery</a></li>
+			<li class="largeNav"><a href="#">Products</a></li>
+			<li class="largeNav"><a href="#">Services</a></li>
+			<li class="largeNav"><a href="#">About Us</a></li>
+			<li class="largeNav"><a href="#">Contact Us</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h1>Concept</h1>
+		<div class="row1">
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item1.jpg"/>
+				<p>Etiam sed felis</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item2.jpg"/>
+				<p>Nulla sagittis</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item3.jpg"/>
+				<p>Quisque lacinia</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item4.jpg"/>
+				<p>Venenatis</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item5.jpg"/>
+				<p>Sed sed nisi</p>
+			</div>
+		</div>
+		<div class="row2">
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item6.jpg"/>
+				<p>Modern</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item7.jpg"/>
+				<p>Elegant</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item8.jpg"/>
+				<p>HTML5 CSS3</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item9.jpg"/>
+				<p>New Design</p>
+			</div>
+		</div>
+		<div class="row3">
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item10.jpg"/>
+				<p>Download</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item11.jpg"/>
+				<p>Responsive</p>
+			</div>
+			<div class="gallery">
+				<div class="cover"><img src="./images/gallery_1.png"/></div>
+				<img src="./images/gallery-item12.jpg"/>
+				<p>Templagte</p>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		Copyright © 2084 Your Company Name - Design: <a href="#">templatemo</a>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
