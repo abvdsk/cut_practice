@@ -112,6 +112,93 @@ body{
 	color:firebrick;
 }
 
+.allcover{
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.7);
+	z-index:5;
+	position:absolute;
+	display:none;
+}
+.allcover .img_show{
+	width:90%;
+	background:white;
+	box-shadow:0 0 5px blue;
+	padding:5px;
+	position:fixed;
+	top:50%;
+	left:50%;
+}
+.allcover .img_show img{
+	width:100%;
+}
+
+.allcover .prev{
+	position:fixed;
+	left:10px;
+	z-index:5;
+	color:white;
+	font-size:30px;
+	cursor:pointer;
+	background:firebrick;
+	font-weight:bold;
+	width:30px;
+	line-height:30px;
+	border-radius:100px;
+	text-indent:4px;
+}
+.allcover .next{
+	position:fixed;
+	right:10px;
+	z-index:5;
+	color:white;
+	font-size:30px;
+	cursor:pointer;
+	background:firebrick;
+	font-weight:bold;
+	width:30px;
+	line-height:30px;
+	border-radius:100px;
+	text-indent:7px;
+}
+
+.allcover .close{
+	position:fixed;
+	right:10px;
+	top:10px;
+	z-index:5;
+	color:white;
+	font-size:30px;
+	cursor:pointer;
+	background:firebrick;
+	font-weight:bold;
+	width:30px;
+	line-height:30px;
+	border-radius:100px;
+	text-indent:4px;
+}
+.prev,.next,.close{
+	transition:0.3s;
+}
+.allcover .prev:hover{
+	width:40px;
+	height:40px;
+	font-size:40px;
+	line-height:40px;
+}
+.allcover .next:hover{
+	width:40px;
+	height:40px;
+	font-size:40px;
+	line-height:40px;
+}
+.allcover .close:hover{
+	width:40px;
+	height:40px;
+	font-size:40px;
+	line-height:40px;
+}
+
 @media screen and (min-width:700px){
 	.content .gallery{
 		width:40%;
@@ -126,6 +213,9 @@ body{
 	}
 	.content .row3 .gallery:last-of-type{
 		margin-bottom:100px;
+	}
+	.allcover .img_show{
+		width:70%;
 	}
 }
 
@@ -153,7 +243,11 @@ body{
 	.header ul li.largeNav a{
 		font-weight:normal;
 	}
+	.allcover .img_show{
+		width:60%;
+	}
 }
+
 
 </style>
 <head>
@@ -180,10 +274,67 @@ $(function(){
 			});
 		}
 	);
+	//照片輪播
+	$(window).resize(function(){
+		$('.allcover').css({
+			height:$('body').height(),
+		}).find('.img_show').css({
+			marginLeft:-$('.img_show').width()/2,
+			marginTop:-$('.img_show').height()/2,
+		}).siblings('.prev').css({
+			top:$('.img_show').css('top'),
+		}).siblings('.next').css({
+			top:$('.img_show').css('top'),
+		});
+	});
+	
+	$('.cover img').click(function(){
+		$('.allcover').css({
+			height:$('body').height(),
+			display:'block',
+		}).find('.img_show').css({
+			marginLeft:-$('.img_show').width()/2,
+			marginTop:-$('.img_show').height()/2,
+		}).find('img').attr('src',$(this).parent().next().attr('src')).parent().siblings('.prev').css({
+			top:$('.img_show').css('top'),
+		}).siblings('.next').css({
+			top:$('.img_show').css('top'),
+		});
+	});
+	$('.close').click(function(){
+		$(this).parent().css('display','none');
+	});
+	$('.next').click(function(){
+		var count = parseInt($('.img_show img').attr('src').substring(21,$('.img_show img').attr('src').indexOf('j')-1));
+		if(count==12){
+			count = 0;
+		}
+		count++;
+		$('.img_show img').attr('src','./images/gallery-item'+count+'.jpg');
+	});
+	$('.prev').click(function(){
+		var count = parseInt($('.img_show img').attr('src').substring(21,$('.img_show img').attr('src').indexOf('j')-1));
+		if(count==1){
+			count = 13;
+		}
+		count--;
+		$('.img_show img').attr('src','./images/gallery-item'+count+'.jpg');
+	});
+	
+	
+	
 });
 </script>
 </head>
 <body>
+	<div class="allcover">
+		<div class="img_show">
+			<img src="./images/gallery-item1.jpg"/>
+		</div>
+		<div class="prev"><</div>
+		<div class="next">></div>
+		<div class="close">X</div>
+	</div>
 	<div class="header">
 		<ul>
 			<li class="smallNav"><a href="#">Gallery</a></li>
