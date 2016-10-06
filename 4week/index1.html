@@ -1,0 +1,740 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+.header{
+	position:relative;
+	background:white;
+	width:1280px;
+	height:40px;
+	box-shadow:0 5px 5px gray;
+	position:fixed;
+	top:0px;
+	z-index:1;
+}
+.header img{
+	cursor:pointer;
+}
+.header>span{
+	font-size:18px;
+	line-height:40px;
+	position:relative;
+	display:inline-block;
+	top:-14px;
+	left:120px;
+}
+.header span a{
+	font-size:12px;
+	color:gray;
+}
+.header button{
+	display:inline-block;
+	background:linear-gradient(lightskyblue,dodgerblue);
+	padding:7px 20px;
+	color:white;
+	cursor:pointer;
+	position:relative;
+	top:-15px;
+	right:-140px;
+	border:none;
+	border-radius:5px;
+}
+.header button:hover{
+	background:linear-gradient(dodgerblue,lightskyblue);
+}
+body{
+	background:url(./images/bg.png);
+}
+.main{
+	background:rgba(151, 130, 130,0.8);
+	width:80%;
+	margin:0px auto;
+	margin-top:40px;
+	margin-bottom:10px;
+}
+.main .logo{
+	width:40%;
+	margin:0 auto;
+	padding-top:20px;
+}
+.main .logo img{
+	width:100%;
+}
+.main .nav{
+	position:relative;
+}
+.main .nav ul{
+	list-style:none;
+}
+.main .nav ul li{
+	display:inline-block;
+	margin:0 10px;
+	font-weight:bold;
+}
+.main .nav ul li:first-child a{
+	font-size:40px;
+}
+.main .nav ul li:not(:first-child){
+	position:relative;
+	float:right;
+	top:20px;
+}
+.main .nav ul li:not(:first-child) a.active{
+	color:limegreen;
+}
+.main .nav ul li:not(:first-child) a:hover{
+	color:limegreen;
+}
+.main .nav ul li a{
+	color:white;
+	text-decoration:none;
+}
+.main .line{
+	width:98%;
+	height:3px;
+	background:white;
+	margin:0 auto;
+}
+.main .home{
+	width:100%;
+	position:relative;
+	padding-bottom:20px;
+}
+.main .home .gallery{
+	width:60%;
+	margin:20px 5px 20px 20px;
+	background:white;
+	overflow:hidden;
+	border:3px solid white;
+	display:inline-block;
+}
+.main .home .gallery .gallery_bar{
+	position:relative;
+	width:400%;
+}
+.main .home .gallery .gallery_bar .gallery_content{
+	position:relative;
+	width:25%;
+	float:left;
+}
+
+.main .home .gallery .gallery_bar .gallery_content img{
+	width:100%;
+	position:relative;
+}
+.main .home .gallery .gallery_bar .gallery_content .caption{
+	position:absolute;
+	bottom:0px;
+	padding:5px;
+	background:limegreen;
+	width:100%;
+	display:none;
+	color:white;
+}
+.main .home .home_right{
+	position:relative;
+	width:36%;
+	padding:3px;
+	background:white;
+	display:inline-block;
+	top:-33px;
+}
+.main .home .home_right img{
+	width:100%;
+}
+.home .home_footer{
+	width:100%;
+	position:relative;
+	text-align:center;
+}
+.home .home_footer div{
+	display:inline-block;
+}
+.home .home_footer .prev{
+	position:relative;
+	width:5%;
+	font-size:50px;
+	text-align:center;
+	top:-40px;
+	cursor:pointer;
+}
+.home .home_footer .next{
+	position:relative;
+	width:5%;
+	font-size:50px;
+	text-align:center;
+	top:-40px;
+	cursor:pointer;
+}
+.home .home_footer .prev:hover,.next:hover{
+	font-weight:bold;
+	color:white;
+}
+.home .home_footer .home_footer_gallery{
+	width:80%;
+	overflow:hidden;
+}
+.home .home_footer .home_footer_gallery .home_footer_bar{
+	text-align:left;
+	width:200%;
+	position:relative;
+}
+.home .home_footer .home_footer_content{
+	position:relative;
+	border:3px solid black;
+	width:11%;
+	margin:5px;
+	cursor:pointer;
+	
+}
+.home .home_footer .home_footer_content img{
+	position:relative;
+	width:100%;
+	top:2px;
+}
+.home .home_footer .home_footer_content .cover{
+	width:100%;
+	height:100%;
+	position:absolute;
+	background:rgba(0,255,0,0.1);
+	top:0;
+	left:0;
+	display:none;
+}
+.home .home_footer .home_footer_content:hover .cover{
+	display:block;
+}
+.home .home_footer .info{
+	width:100%;
+	text-align:center;
+	color:white;
+}
+.home .home_footer .info .info_content{
+	width:30%;
+}
+.home .home_footer .info .info_content h1{
+	color:#844200;
+}
+.footer{
+	background:rgba(151, 130, 130,0.8);
+	width:80%;
+	margin: 0px auto;
+	padding:10px;
+	color:white;
+	text-align:center;
+}
+.footer a{
+	color:white;
+}
+.main .skin_care{
+	text-align:center;
+	color:white;
+	padding:30px;
+	display:none;
+}
+.main .skin_care h1{
+	margin:30px
+}
+.main .skin_care .skin_gallery{
+	width:95%;
+}
+.main .skin_care .skin_gallery img{
+	width:21%;
+	border:3px solid black;
+	margin:3px;
+}
+.main .contact{
+	color:white;
+	padding:30px;
+	text-align:center;
+	display:none;
+}
+.main .contact .contact_left{
+	width:45%;
+	display:inline-block;
+	
+}
+.main .contact .contact_left img{
+	width:100%;
+	border:3px solid white;
+}
+.main .contact .contact_right{
+	width:45%;
+	display:inline-block;
+	position:relative;
+}
+.main .contact .contact_right img{
+	width:100%;
+	visibility:hidden;
+}
+.main .contact .contact_right h1{
+	position:absolute;
+	top:0;
+}
+.main .contact .contact_right form{
+	position:absolute;
+	bottom:0;
+}
+.main .contact .contact_right form input{
+	width:100%;
+	margin:2px 0px;
+	font-size:15px;
+	padding:2px;
+}
+
+@media screen and (max-width:950px){
+	.main .nav ul li:first-child a{
+		font-size:25px
+	}
+	.main .nav ul li:not(:first-child){
+		top:10px;
+	}
+	.main .home .gallery{
+		width:55%;
+	}
+	.main .home .home_right{
+		position:relative;
+		width:36%;
+		padding:3px;
+		background:white;
+		display:inline-block;
+		top:-15px;
+	}
+}
+@media screen and (max-width:710px){
+	.home .home_footer .prev{
+		font-size:30px;
+		top:-30px;
+	}
+	.home .home_footer .next{
+		font-size:30px;
+		top:-30px;
+	}
+	.home .home_footer .home_footer_content{
+		margin:2px;		
+	}
+}
+@media screen and (max-width:650px){
+	.main .nav ul li:first-child a{
+		font-size:18px
+	}
+	.main .nav ul li:not(:first-child) a{
+		font-size:12px;
+	}
+	.main .nav ul li:not(:first-child){
+		top:3px;
+	}
+}
+@media screen and (max-width:540px){
+	.home .home_footer .info .info_content h2{
+		font-size:18px;
+	}
+	.home .home_footer .info .info_content p{
+		font-size:12px;
+	}
+}
+@media screen and (max-width:500px){
+	.main .home .gallery{
+		width:55%;
+	}
+	.main .home .home_right{
+		position:absolute;
+		width:30%;
+		top:20px;
+		right:15px;
+	}
+}
+@media screen and (max-width:450px){
+	.main .nav ul li{
+		margin:0 2px;
+	}
+}
+
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>HTML5標準頁面</title>
+<script src="jquery-3.0.0.min.js"></script>
+<script>
+$(function(){
+	//header com mobile logo 切換
+	$('.header img').eq(1).click(function(){
+		$(this).attr({
+			src:'./images/header_com.png',
+		});
+		$('.header img').eq(2).attr({
+			src:'./images/header_mobile_nb.png',
+		});
+	});
+	$('.header img').eq(2).click(function(){
+		$(this).attr({
+			src:'./images/header_mobile.png',
+		});
+		$('.header img').eq(1).attr({
+			src:'./images/header_com_nb.png',
+		});
+	});
+	//home 輪播圖
+	var timer = null;
+	var gallery_count = 0;
+	timer = setInterval(function(){
+		gallery_count++;
+		if(gallery_count==4){
+			gallery_count = 1;
+			$('.gallery_bar').css({
+				left:'0'
+			});
+		}
+		$('.gallery_bar').animate({
+			left:'-='+($('.gallery_content').width()),
+		})
+	},2000);
+	$('.gallery_content').hover(function(){
+		$('.gallery_content .caption').stop().fadeIn();
+	},function(){
+		$('.gallery_content .caption').stop().fadeOut();
+	});
+	// home footer 輪播
+	var timer_footer = null;
+	$('.next').hover(function(){
+		timer_footer = setInterval(function(){
+			
+			if(parseInt($('.home_footer_bar').css('left'))<-($('.home_footer_content').width()*4)){
+				$('.home_footer_bar').css('left','0');
+			}else{
+				$('.home_footer_bar').stop().animate({
+					left:'-=100'
+				},300);
+			}
+		},300);
+	},function(){
+		clearInterval(timer_footer);
+	});
+	$('.prev').hover(function(){
+		timer_footer = setInterval(function(){
+			if(parseInt($('.home_footer_bar').css('left'))>0){
+				$('.home_footer_bar').css({
+					left:-($('.home_footer_content').width()*4)
+				});
+			}else{
+				$('.home_footer_bar').stop().animate({
+					left:'+=100'
+				},300);
+			}
+		},300);
+	},function(){
+		clearInterval(timer_footer);
+	});
+	//window resize設定
+	$(window).resize(function(){
+		//alert($('.home_footer_gallery').height());
+		$('.prev').css({
+			top:-(($('.home_footer_gallery').height()-$('.prev').height())/2+5)
+		});
+		$('.next').css({
+			top:-(($('.home_footer_gallery').height()-$('.next').height())/2+5)
+		});
+	});
+	
+	//分頁向下滑動效果
+	/*$('.nav ul li').click(function(){
+		$(this).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+		switch($(this).find('a').html()){
+			case 'HOME':
+				$('.home').css({
+					display:'block'
+				}).siblings('.skin_care').css({
+					display:'none'
+				});
+				break;
+			case 'SKIN CARE':
+				$('.skin_care').css({
+					display:'block'
+				}).siblings('.home').css({
+					display:'none'
+				});
+				break;
+		}
+	});*/
+	$('.nav ul li').click(function(){
+		var _this = $('.nav ul li a.active').html();
+		//alert(_this);
+		$(this).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+		switch($(this).find('a').html()){
+			case 'HOME':
+				if(_this=='SKIN CARE'){
+					$('.home').insertBefore($('.skin_care')).css({
+						display:'block',
+						position:'relative',
+						top:-$('.skin_care').height()
+					}).animate({
+						top:'0'
+					});
+					$('.skin_care').animate({
+						top:$('.skin_care').height()
+					},function(){
+						$('.skin_care').css({
+							display:'none'
+						});
+					});
+				}
+				if(_this=='CONTACT'){
+					$('.home').insertBefore($('.contact')).css({
+						display:'block',
+						position:'relative',
+						top:-$('.contact').height()
+					}).animate({
+						top:'0'
+					});
+					$('.contact').animate({
+						top:$('.contact').height()
+					},function(){
+						$('.contact').css({
+							display:'none'
+						});
+					});
+				}
+				break;
+			case 'SKIN CARE':
+				if(_this=='HOME'){
+					$('.skin_care').insertBefore($('.home')).css({
+						display:'block',
+						position:'relative',
+						top:-$('.home').height()
+					}).animate({
+						top:'0'
+					});
+					$('.home').animate({
+						top:$('.home').height()
+					},function(){
+						$('.home').css({
+							display:'none'
+						});
+					});
+				}
+				if(_this=='CONTACT'){
+					$('.skin_care').insertBefore($('.contact')).css({
+						display:'block',
+						position:'relative',
+						top:-$('.contact').height()
+					}).animate({
+						top:'0'
+					});
+					$('.contact').animate({
+						top:$('.contact').height()
+					},function(){
+						$('.contact').css({
+							display:'none'
+						});
+					});
+				}
+				break;
+			case 'CONTACT':
+				if(_this=='HOME'){
+					$('.contact').insertBefore($('.home')).css({
+						display:'block',
+						position:'relative',
+						top:-$('.home').height()
+					}).animate({
+						top:'0'
+					});
+					$('.home').animate({
+						top:$('.home').height()
+					},function(){
+						$('.home').css({
+							display:'none'
+						});
+					});
+				}
+				if(_this=='SKIN CARE'){
+					$('.contact').insertBefore($('.skin_care')).css({
+						display:'block',
+						position:'relative',
+						top:-$('.skin_care').height()
+					}).animate({
+						top:'0'
+					});
+					$('.skin_care').animate({
+						top:$('.skin_care').height()
+					},function(){
+						$('.skin_care').css({
+							display:'none'
+						});
+					});
+				}
+				break;
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<div class="header">
+		<img src="./images/header_logo.png" style="height:40px; margin:0 20px;"/>
+		<img src="./images/header_com.png" style="height:40px;"/>
+		<img src="./images/header_mobile_nb.png" style="height:40px;"/>
+		<span>Click Edit and create your own amazing website <a href="#">Read more</a></span>
+		<button>Edit this site</button>
+		<span style="left:150px;">Price:Free</span>
+		<img src="./images/header_html5.png" style="height:40px;position:relative;right:-150px;"/>
+		<img src="./images/header_fbtt.png" style="height:40px;position:relative;right:-150px;"/>
+	</div>
+	<div class="main">
+		<div class="logo">
+			<img src="./images/logo.png"/>
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="#">Bio Beauty Care</a></li>
+				<li><a href="#">CONTACT</a></li>
+				<li><a href="#">SKIN CARE</a></li>
+				<li><a href="#" class="active">HOME</a></li>
+			</ul>
+		</div>
+		<div class="line">
+		</div>
+		<div class="home">
+			<div class="gallery">
+				<div class="gallery_bar">
+					<div class="gallery_content">
+						<img src="./images/home_gallery1.png"/>
+						<div class="caption">
+							<h2>I'm a title</h2>
+							<p>I'm a description. Click to edit me<span>1/3</span></p>
+						</div>
+					</div>
+					<div class="gallery_content">
+						<img src="./images/home_gallery2.png"/>
+						<div class="caption">
+							<h2>I'm a title</h2>
+							<p>I'm a description. Click to edit me<span>2/3</span></p>
+						</div>
+					</div>
+					<div class="gallery_content">
+						<img src="./images/home_gallery3.png"/>
+						<div class="caption">
+							<h2>I'm a title</h2>
+							<p>I'm a description. Click to edit me<span>3/3</span></p>
+						</div>
+					</div>
+					<div class="gallery_content">
+						<img src="./images/home_gallery1.png"/>
+						<div class="caption">
+							<h2>I'm a title</h2>
+							<p>I'm a description. Click to edit me<span>1/3</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="home_right">
+				<img src="./images/home_right.png"/>
+			</div>
+			<div class="home_footer">
+				<div class="prev"><</div>
+				<div class="home_footer_gallery">
+					<div class="home_footer_bar">
+						<div class="home_footer_content">
+							<img src="./images/home_footer1.png"/>
+							<div class="cover"></div>
+						</div>
+						<div class="home_footer_content">
+							<img src="./images/home_footer2.png"/>
+							<div class="cover"></div>
+						</div>
+						<div class="home_footer_content">
+							<img src="./images/home_footer3.png"/>
+							<div class="cover"></div>
+						</div>
+						<div class="home_footer_content">
+							<img src="./images/home_footer4.png"/>
+							<div class="cover"></div>
+						</div>
+						<div class="home_footer_content">
+							<img src="./images/home_footer1.png"/>
+							<div class="cover"></div>
+						</div>
+						<div class="home_footer_content">
+							<img src="./images/home_footer2.png"/>
+							<div class="cover"></div>
+						</div>
+						<div class="home_footer_content">
+							<img src="./images/home_footer3.png"/>
+							<div class="cover"></div>
+						</div>
+						<div class="home_footer_content">
+							<img src="./images/home_footer4.png"/>
+							<div class="cover"></div>
+						</div>
+					</div>
+				</div>
+				<div class="next">></div>
+				<div class="info">
+					<div class="info_content">
+						<h1>A</h1>
+						<h2>Follow us on</h2>
+						<p>FACEBOOK</p>
+						<p>OR TWITTER</p>
+					</div>
+					<div class="info_content">
+						<h1>B</h1>
+						<h2>Call now</h2>
+						<p>TODAY ON:</p>
+						<p>1800-000-0000</p>
+					</div>
+					<div class="info_content">
+						<h1>C</h1>
+						<h2>Say hello</h2>
+						<p>BY EMAIL</p>
+						<p>INFO@MYSITE.COM</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="skin_care">
+			<h1>SKIN CARE</h1>
+			<div class="skin_gallery">
+				<img src="./images/home_footer1.png"/>
+				<img src="./images/home_footer2.png"/>
+				<img src="./images/home_footer3.png"/>
+				<img src="./images/home_footer4.png"/>
+				<img src="./images/home_footer1.png"/>
+				<img src="./images/home_footer2.png"/>
+				<img src="./images/home_footer3.png"/>
+				<img src="./images/home_footer4.png"/>
+			</div>
+		</div>
+		<div class="contact">
+			<div class="contact_left">
+				<img src="./images/contact.png"/>
+			</div>
+			<div class="contact_right">
+				<img src="./images/contact.png"/>
+				<h1>CONTACT US</h1>
+				<form>
+					<input type="text" value="Name"/>
+					<input type="text" value="Email"/>
+					<input type="text" value="Subject"/>
+					<input type="text" value="Massage"/>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>© 2023 by Organic Skin Care. Proudly created with  <a href="#">Wix.com</a></p>
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

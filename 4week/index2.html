@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+.div1{
+	position:relative;
+	width:100px;
+	height:100px;
+	background:red;
+}
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>HTML5標準頁面</title>
+<script src="jquery-3.0.0.min.js"></script>
+<script>
+$(function(){
+	$('.div1').hover(function(){
+		$(this).animate({
+			left:'+=10'
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<div class="div1"></div>
+	<button>按</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
