@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+ul li{
+	list-style:none;
+}
+body{
+	position:relative;
+}
+.nav{
+	position:fixed;
+	right:0;
+	top:50%;
+	transform:translateY(-50%);
+	z-index:2;
+}
+.nav .outer .inner{
+	position:relative;
+	text-align:center;
+	height:215px;
+}
+.nav .outer .inner>img{
+	position:absolute;
+	top:0;
+	left:24px;
+}
+
+.nav .outer .inner li{
+	height:27px;
+	overflow:hidden;
+	position:relative;
+	margin:6px;
+	top:5px;
+}
+
+.nav .outer .inner li img{
+	position:relative;
+	width:20px;
+	cursor:pointer;
+	top:4px;
+}
+.nav .outer .inner li:first-of-type img{
+	top:-32px;
+	width:27px;
+}
+
+[class*=contain]{
+	position:relative;
+	width:1263px;
+	height:895px;
+	overflow:hidden;
+}
+[class*=contain] .bg{
+	position:absolute;
+	width:110%;
+	height:100%;
+	left:-5%;
+}
+
+.contain_one .one_person{
+	position:absolute;
+	left:0;
+	bottom:-70px;
+	z-index:1;
+}
+.contain_one .one_person .one_person_light{
+	position:absolute;
+	left:20px;
+	top:0;
+}
+.contain_one .logo{
+	position:absolute;
+	top:80px;
+	left:100px;
+}
+.contain_one .caption{
+	position:absolute;
+	bottom:300px;
+	left:100px;
+	z-index:1;
+}
+.contain_one .banner{
+	background:white;
+	position:absolute;
+	width:45%;
+	height:100%;
+	right:110px;
+	transform:skewX(-15deg);
+	z-index:0;
+	box-shadow:0 0 10px gray;
+}
+.contain_one .banner .gallery{
+	position:absolute;
+	top:200px;
+	left:50px;
+	width:473px;
+	height:210px;
+	overflow:hidden;
+	transform:skewX(15deg);
+}
+.contain_one .banner .gallery>img{
+	position:relative;
+}
+.contain_one .banner .info{
+	position:absolute;
+	bottom:160px;
+	left:70px;
+	width:400px;
+	transform:skewX(15deg);
+	line-height:25px;
+}
+.contain_one .banner .info span{
+	color:orange;
+	font-size:25px;
+}
+
+.contain_two .two_person{
+	position:absolute;
+	right:-100px;
+	bottom:0;
+	z-index:1;
+}
+.contain_two .spark{
+	position:absolute;
+	bottom:0px;
+	right:-300px;
+	z-index:1;
+}
+.contain_two .banner{
+	background:white;
+	position:absolute;
+	width:55%;
+	height:100%;
+	left:110px;
+	transform:skewX(-15deg);
+	z-index:0;
+	box-shadow:0 0 10px gray;
+}
+.contain_two .banner .content1{
+	position:absolute;
+	left:100px;
+	top:100px;
+	transform:skewX(10deg);
+}
+.contain_two .banner .content1 h1{
+	font-size:50px;
+	color:orange;
+}
+.contain_two .banner .content2{
+	position:absolute;
+	left:100px;
+	top:250px;
+	transform:skewX(15deg);
+}
+.contain_two .banner .content2 h1{
+	color:dodgerblue;
+}
+.contain_two .banner .content2 p{
+	width:300px;
+	line-height:25px;
+}
+.contain_two .banner .content2 button{
+	width:150px;
+	background:orange;
+	color:white;
+	height:50px;
+	font-size:25px;
+	border:none;
+	border-radius:10px;
+	transform:skewX(-15deg);
+	cursor:pointer;
+	font-weight:bold;
+	margin:5px;
+}
+.contain_two .banner .content2>img{
+	position:absolute;
+	right:-250px;
+	top:0px;
+}
+.contain_two .banner .content3{
+	position:absolute;
+	left:100px;
+	bottom:200px;
+	transform:skewX(15deg);
+}
+.contain_two .banner .content3 h1{
+	color:dodgerblue;
+}
+.contain_two .banner .content3 p{
+	width:200px;
+	line-height:25px;
+}
+.contain_two .banner .content3 button{
+	width:150px;
+	background:orange;
+	color:white;
+	height:50px;
+	font-size:25px;
+	border:none;
+	border-radius:10px;
+	transform:skewX(-15deg);
+	cursor:pointer;
+	font-weight:bold;
+	margin:5px;
+}
+.contain_two .banner .content3>img:first-of-type{
+	position:absolute;
+	right:-100px;
+	top:80px;
+	transform:scale(0.7);
+	z-index:1;
+}
+.contain_two .banner .content3 .loop{
+	position:absolute;
+	right:-320px;
+	top:0px;
+}
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+	<title>HTML5標準頁面</title>
+<script src="jquery-3.0.0.min.js"></script>
+<script>
+$(function(){
+	//nav 效果
+	$('.inner li img').click(function(){
+		$(this).css('top','-32px').animate({
+			width:'27px'
+		}).parent().siblings().find('img').css('top','4px').stop().animate({
+			width:'20px'
+		});
+		$('body').stop().animate({
+			scrollTop:$('body>div').eq($(this).parent().index()).offset().top
+		})
+	});
+	//window scroll
+	$(window).scroll(function(){
+		if($('body').scrollTop()>=$('.contain_one').offset().top && $('body').scrollTop()<$('.contain_two').offset().top){
+			$('.inner li').eq(0).find('img').css('top','-32px').stop().animate({
+				width:'27px'
+			}).parent().siblings().find('img').css('top','4px').stop().animate({
+				width:'20px'
+			});
+		}else if($('body').scrollTop()>=$('.contain_two').offset().top && $('body').scrollTop()<$('.contain_three').offset().top){
+			$('.inner li').eq(1).find('img').css('top','-32px').stop().animate({
+				width:'27px'
+			}).parent().siblings().find('img').css('top','4px').stop().animate({
+				width:'20px'
+			});
+		}else if($('body').scrollTop()>=$('.contain_three').offset().top && $('body').scrollTop()<$('.contain_four').offset().top){
+			$('.inner li').eq(2).find('img').css('top','-32px').stop().animate({
+				width:'27px'
+			}).parent().siblings().find('img').css('top','4px').stop().animate({
+				width:'20px'
+			});
+		}else if($('body').scrollTop()>=$('.contain_four').offset().top && $('body').scrollTop()<$('.contain_five').offset().top){
+			$('.inner li').eq(3).find('img').css('top','-32px').stop().animate({
+				width:'27px'
+			}).parent().siblings().find('img').css('top','4px').stop().animate({
+				width:'20px'
+			});
+		}else if($('body').scrollTop()>=$('.contain_five').offset().top && $('body').scrollTop()<$('.contain_six').offset().top){
+			$('.inner li').eq(4).find('img').css('top','-32px').stop().animate({
+				width:'27px'
+			}).parent().siblings().find('img').css('top','4px').stop().animate({
+				width:'20px'
+			});
+		}else{
+			$('.inner li').eq(5).find('img').css('top','-32px').stop().animate({
+				width:'27px'
+			}).parent().siblings().find('img').css('top','4px').stop().animate({
+				width:'20px'
+			});
+		}
+	});
+	//背景滾動
+	$('.contain_one').mousemove(function(e){
+		var per = parseInt(-(e.pageX/$(this).width())*10);
+		$(this).find('img.bg').stop().animate({
+			left:per+'%',
+		});
+	});
+	$('.contain_two').mousemove(function(e){
+		var per = parseInt(-(e.pageX/$(this).width())*10);
+		$(this).find('img.bg').stop().animate({
+			left:per+'%',
+		});
+	});
+	$('.contain_three').mousemove(function(e){
+		var per = parseInt(-(e.pageX/$(this).width())*10);
+		$(this).find('img.bg').stop().animate({
+			left:per+'%',
+		});
+	});
+	$('.contain_four').mousemove(function(e){
+		var per = parseInt(-(e.pageX/$(this).width())*10);
+		$(this).find('img.bg').stop().animate({
+			left:per+'%',
+		});
+	});
+	$('.contain_five').mousemove(function(e){
+		var per = parseInt(-(e.pageX/$(this).width())*10);
+		$(this).find('img.bg').stop().animate({
+			left:per+'%',
+		});
+	});
+	$('.contain_six').mousemove(function(e){
+		var per = parseInt(-(e.pageX/$(this).width())*10);
+		$(this).find('img.bg').stop().animate({
+			left:per+'%',
+		});
+	});
+	//page one gallery
+	var timer = null;
+	var count = 0;
+	timer = setInterval(function(){
+		count++;
+		if(count==6){
+			count=0;
+		}
+		$('.gallery>img').css('top',-count*210);
+	},1000);
+	//page two loop
+	var page2_timer = null;
+	var page2_count = 0;
+	page2_timer = setInterval(function(){
+		page2_count++;
+		if(page2_count==43){
+			page2_count=1;
+		}
+		if(page2_count>=10){
+			$('.loop').attr('src','./images/loop/76_loop_000'+page2_count+'.png');
+		}else{
+			$('.loop').attr('src','./images/loop/76_loop_0000'+page2_count+'.png');
+		}
+		
+	},100);
+});
+</script>
+</head>
+<body>
+	<div class="nav">
+		<ul class="outer">
+			<li><img src="./images/navigation_logo.png"/></li>
+			<li><ul class="inner">
+				<img src="./images/navigation_bg.png"/>
+				<li><img src="./images/navigation_dot.png"/></li>
+				<li><img src="./images/navigation_dot.png"/></li>
+				<li><img src="./images/navigation_dot.png"/></li>
+				<li><img src="./images/navigation_dot.png"/></li>
+				<li><img src="./images/navigation_dot.png"/></li>
+				<li><img src="./images/navigation_dot.png"/></li>
+			</ul></li>
+		</ul>
+	</div>
+	<!--page one-->
+	<div class="contain_one">
+		<img class="bg" src="./images/1_page_bg.jpg"/>
+		<div class="one_person">
+			<img src="./images/1_page_person.png"/>
+			<img class="one_person_light" src="./images/1_page_person_light.png"/>
+		</div>
+		<div class="logo">
+			<img src="./images/1_page_logo.png"/>
+		</div>
+		<div class="caption">
+			<img src="./images/1_page_caption-white.png"/>
+			<img src="./images/1_page_caption-blue.png"/>
+		</div>
+		<div class="banner">
+			<div class="gallery">
+				<img src="./images/1_page_gallery.jpg"/>	
+			</div>
+			<div class="info">
+				『鬥陣特攻』是一款快節奏的第一人稱射擊遊戲，共有22個角色。每個人有獨特的武器與技能。搭配戰場任務，讓你每次遊戲都有不同的遊戲體驗!再正式開始前，有些事你得先了解，才能快速進入遊戲，並且活的久一點。讓士兵76告訴你們<span>捍衛教戰守則!</span>
+			</div>
+		</div>
+	</div>
+	<!--page two-->
+	<div class="contain_two">
+		<img class="bg" src="./images/2_page_bg.jpg"/>
+		<div class="two_person">
+			<img src="./images/2_page_person.png"/>
+		</div>
+		<img class="spark" src="./images/2_page_spark.png"/>
+		<div class="banner">
+			<div class="content1">
+				<h1>捍衛者教戰守則</h1>
+			</div>
+			<div class="content2">
+				<h1>守則1 下載應用程式</h1>
+				<p>工欲善其事，並先利其器!</p>
+				<p>想成為捍衛者，首先你得安裝Battle.net應用程式，才能在現實世界/『鬥陣特攻』之間快速轉換。</p>
+				<button>免費下載</button>
+				<img src="./images/2_page_attchment1.png"/>
+			</div>
+			<div class="content3">
+				<h1>守則2 創建帳號</h1>
+				<p>身為捍衛者，除了身手敏捷之外，響亮的名號也是很重要的!這樣拿下精彩重播時，帥度硬是比別人多一級</p>
+				<button>馬上建立</button>
+				<img src="./images/2_page_attchment2.png"/>
+				<img class="loop" src="./images/loop/76_loop_00001.png"/>
+			</div>
+		</div>
+	</div>
+	<!--page three-->
+	<div class="contain_three">
+		<img class="bg" src="./images/3_page_bg.jpg"/>
+	</div>
+	<!--page four-->
+	<div class="contain_four">
+		<img class="bg" src="./images/4_page_bg.jpg"/>
+	</div>
+	<!--page five-->
+	<div class="contain_five">
+		<img class="bg" src="./images/5_page_bg.jpg"/>
+	</div>
+	<!--page six-->
+	<div class="contain_six">
+		<img class="bg" src="./images/6_page_bg.jpg"/>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
