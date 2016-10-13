@@ -9,6 +9,10 @@
 ul li{
 	list-style:none;
 }
+p{
+	transform:skewX(-5deg);
+	margin:10px 0;
+}
 body{
 	position:relative;
 }
@@ -111,7 +115,7 @@ body{
 	bottom:160px;
 	left:70px;
 	width:400px;
-	transform:skewX(15deg);
+	transform:skewX(5deg);
 	line-height:25px;
 }
 .contain_one .banner .info span{
@@ -164,8 +168,8 @@ body{
 	width:300px;
 	line-height:25px;
 }
-.contain_two .banner .content2 button{
-	width:150px;
+button{
+	width:170px;
 	background:orange;
 	color:white;
 	height:50px;
@@ -173,10 +177,11 @@ body{
 	border:none;
 	border-radius:10px;
 	transform:skewX(-15deg);
-	cursor:pointer;
+	cursor: pointer;
 	font-weight:bold;
 	margin:5px;
 }
+
 .contain_two .banner .content2>img{
 	position:absolute;
 	right:-250px;
@@ -195,19 +200,7 @@ body{
 	width:200px;
 	line-height:25px;
 }
-.contain_two .banner .content3 button{
-	width:150px;
-	background:orange;
-	color:white;
-	height:50px;
-	font-size:25px;
-	border:none;
-	border-radius:10px;
-	transform:skewX(-15deg);
-	cursor:pointer;
-	font-weight:bold;
-	margin:5px;
-}
+
 .contain_two .banner .content3>img:first-of-type{
 	position:absolute;
 	right:-100px;
@@ -219,6 +212,265 @@ body{
 	position:absolute;
 	right:-320px;
 	top:0px;
+}
+.contain_three .three_person_1{
+	position:absolute;
+	right:0;
+	top:0;
+	z-index:1;
+}
+.contain_three .three_person_2{
+	position:absolute;
+	right:-80px;
+	bottom:0;
+	z-index:1;
+}
+.contain_three .three_person_3{
+	position:absolute;
+	left:130px;
+	bottom:0;
+	z-index:1;
+}
+.contain_three .banner{
+	background:white;
+	position:absolute;
+	width:45%;
+	height:100%;
+	right:50px;
+	transform:skewX(-15deg);
+	z-index:0;
+	box-shadow:0 0 10px gray;
+}
+.contain_three .banner .content{
+	position:absolute;
+	left:100px;
+	bottom:200px;
+	transform:skewX(10deg);
+}
+.contain_three .banner .content h1{
+	color:dodgerblue;
+}
+.contain_three .banner .content p{
+	width:200px;
+}
+.contain_four .banner{
+	background:white;
+	position:absolute;
+	width:60%;
+	height:100%;
+	left:120px;
+	transform:skewX(-15deg);
+	z-index:0;
+	box-shadow:0 0 10px gray;
+}
+.contain_four .banner .content{
+	position:absolute;
+	left:50px;
+	top:150px;
+	transform:skewX(15deg);
+}
+.contain_four .banner .content h1{
+	color:dodgerblue;
+}
+.contain_four .banner .content p{
+	width:300px;
+}
+.contain_four .banner .mission{
+	position:absolute;
+	right:200px;
+	top:150px;
+}
+.contain_four .banner .mission ul li{
+	position:relative;
+	transform:skewX(15deg);
+}
+.contain_four .banner .mission ul li:not(:first-of-type){
+	margin-top:120px;
+}
+.contain_four .banner .mission ul li .label{
+	width:101px;
+	height:40px;
+	overflow:hidden;
+}
+.contain_four .banner .mission ul li:nth-of-type(2) .label img{
+	position:relative;
+	top:-40px;
+}
+.contain_four .banner .mission ul li:nth-of-type(3) .label img{
+	position:relative;
+	top:-80px;
+}
+.contain_four .banner .mission ul li:nth-of-type(4) .label img{
+	position:relative;
+	top:-120px;
+}
+.contain_four .banner .mission ul li:nth-of-type(2) .mask img{
+	position:relative;
+	top:-113px;
+}
+.contain_four .banner .mission ul li:nth-of-type(3) .mask img{
+	position:relative;
+	top:-226px;
+}
+.contain_four .banner .mission ul li:nth-of-type(4) .mask img{
+	position:relative;
+	top:-339px;
+}
+.contain_four .banner .mission ul li .vedio{
+	position:absolute;
+	top:25px;
+	left:-20px;
+}
+.contain_four .banner .mission ul li:hover .mask{
+	display:block;
+}
+.contain_four .banner .mission ul li .mask{
+	position:absolute;
+	top:27px;
+	left:-18px;
+	height:113px;
+	overflow:hidden;
+	display:none;
+	cursor:pointer;
+}
+.contain_four .four_person{
+	position:absolute;
+	left:0px;
+	bottom:-4px;
+	z-index:1;
+}
+.contain_five .banner{
+	background:white;
+	position:absolute;
+	width:35%;
+	height:100%;
+	right:200px;
+	transform:skewX(-15deg);
+	z-index:0;
+	box-shadow:0 0 10px gray;
+}
+.contain_five .banner .content{
+	position:absolute;
+	left:100px;
+	top:150px;
+	transform:skewX(15deg);
+}
+.contain_five .banner .content h1{
+	color:dodgerblue;
+}
+.contain_five .banner .content p{
+	width:250px;
+}
+.contain_five .banner .attachment{
+	position:absolute;
+	left:50px;
+	top:370px;
+	transform:skewX(15deg);
+}
+.contain_five .banner .vedio{
+	position:absolute;
+	bottom:130px;
+	left:70px;
+	width:318px;
+	height:148px;
+	overflow:hidden;
+	transform:skewX(15deg);
+}
+.contain_five .banner .vedio img{
+	position:relative;
+}
+.contain_five .five_person{
+	position:absolute;
+	left:-170px;
+	bottom:-50px;
+}
+.contain_six .banner{
+	background:white;
+	position:absolute;
+	width:35%;
+	height:100%;
+	right:200px;
+	transform:skewX(-15deg);
+	z-index:0;
+	box-shadow:0 0 10px gray;
+}
+.contain_six .banner .content{
+	position:absolute;
+	left:50px;
+	top:150px;
+	transform:skewX(15deg);
+}
+.contain_six .banner .content p{
+	width:350px;
+	font-size:20px;
+}
+.contain_six .banner .attachment{
+	position:absolute;
+	left:50px;
+	top:300px;
+	transform:skewX(15deg);
+}
+.contain_six .banner .attachment span{
+	position:relative;
+	left:0;
+	top:-120px;
+	font-size:30px;
+	color:dodgerblue;
+	font-weight:bold;
+}
+.contain_six .banner .attachment2{
+	position:absolute;
+	left:50px;
+	bottom:200px;
+	transform:skewX(20deg);
+} 
+.contain_six .banner .attachment2 p{
+	color:dodgerblue;
+	font-weight:bold;
+	font-size:30px;
+}
+.contain_six .banner .attachment2 button{
+	background:dodgerblue;
+}
+.contain_six .six_person{
+	position:absolute;
+	left:0px;
+	bottom:-10px;
+	z-index:1;
+}
+.footer{
+	width:1263px;
+	background:#102e56;
+	border-top: #0198ca 8px solid;
+	padding:50px;
+	position:relative;
+}
+.footer>div{	
+	display:inline-block;
+}
+.footer .link{
+	position:relative;
+	top:-10px;
+	left:50px;
+}
+.footer .link ul{
+	color:white;
+}
+.footer .link ul p{
+	text-indent:10px;
+	color:gray;
+}
+.footer .link ul li{
+	display:inline-block;
+	padding:0 10px;
+}
+.footer .link ul li a{
+	color:white;
+	text-decoration:none;
+}
+.footer .gsrr{	
+	position:relative;
+	right:-400px;
 }
 </style>
 <head>
@@ -284,37 +536,61 @@ $(function(){
 		var per = parseInt(-(e.pageX/$(this).width())*10);
 		$(this).find('img.bg').stop().animate({
 			left:per+'%',
-		});
+		},'fast');
+		$(this).find('div.one_person').stop().animate({
+			left:-per+'px',
+		},'fast');
 	});
 	$('.contain_two').mousemove(function(e){
 		var per = parseInt(-(e.pageX/$(this).width())*10);
 		$(this).find('img.bg').stop().animate({
 			left:per+'%',
-		});
+		},'fast');
+		$(this).find('div.two_person').stop().animate({
+			right:-100+(-per*5)+'px',
+		},'fast');
 	});
 	$('.contain_three').mousemove(function(e){
 		var per = parseInt(-(e.pageX/$(this).width())*10);
 		$(this).find('img.bg').stop().animate({
 			left:per+'%',
-		});
+		},'fast');
+		$(this).find('div.three_person_1').stop().animate({
+			right:-per*2+'px',
+		},'fast');
+		$(this).find('div.three_person_2').stop().animate({
+			right:-80-(-per*2)+'px',
+		},'fast');
+		$(this).find('div.three_person_3').stop().animate({
+			left:130-(-per*2)+'px',
+		},'fast');
 	});
 	$('.contain_four').mousemove(function(e){
 		var per = parseInt(-(e.pageX/$(this).width())*10);
 		$(this).find('img.bg').stop().animate({
 			left:per+'%',
-		});
+		},'fast');
+		$(this).find('div.four_person').stop().animate({
+			left:per*2+'px',
+		},'fast');
 	});
 	$('.contain_five').mousemove(function(e){
 		var per = parseInt(-(e.pageX/$(this).width())*10);
 		$(this).find('img.bg').stop().animate({
 			left:per+'%',
-		});
+		},'fast');
+		$(this).find('div.five_person').stop().animate({
+			left:-170+(per*2)+'px',
+		},'fast');
 	});
 	$('.contain_six').mousemove(function(e){
 		var per = parseInt(-(e.pageX/$(this).width())*10);
 		$(this).find('img.bg').stop().animate({
 			left:per+'%',
-		});
+		},'fast');
+		$(this).find('div.six_person').stop().animate({
+			left:per*2+'px',
+		},'fast');
 	});
 	//page one gallery
 	var timer = null;
@@ -341,6 +617,17 @@ $(function(){
 		}
 		
 	},100);
+	//page_five gallery
+	var page5_timer = null;
+	var page5_count = 0;
+	page5_timer = setInterval(function(){
+		page5_count++;
+		if(page5_count == 5){
+			page5_count = 0;
+		}
+		$('.contain_five .banner .vedio img').css('top',-page5_count*148);
+	},1000);
+	
 });
 </script>
 </head>
@@ -412,18 +699,115 @@ $(function(){
 	<!--page three-->
 	<div class="contain_three">
 		<img class="bg" src="./images/3_page_bg.jpg"/>
+		<div class="three_person_1">
+			<img src="./images/3_page_person1.png"/>
+		</div>
+		<div class="three_person_2">
+			<img src="./images/3_page_person2.png"/>
+		</div>
+		<div class="three_person_3">
+			<img src="./images/3_page_person3.png"/>
+		</div>
+		<div class="banner">
+			<div class="content">
+				<h1>守則3 知己知彼 克敵制勝</h1>
+				<p>『鬥陣特攻』裡，每個英雄都有自己獨特的武器與技能，必須先了解英雄特色，才能在與敵人交戰時做出正確判斷，取得勝利。</p>
+				<button>認識英雄</button><br/>
+				<button>實況進階教學</button>
+			</div>
+		</div>
 	</div>
 	<!--page four-->
 	<div class="contain_four">
 		<img class="bg" src="./images/4_page_bg.jpg"/>
+		<div class="four_person">
+			<img src="./images/4_page_person.png"/>
+		</div>
+		<div class="banner">
+			<div class="content">
+				<h1>守則4 任務優先</h1>
+				<p>每場戰鬥都有不同的任務，有時要護送目標、有時要佔領區域，有時要進行防守。擊殺次數多不一定就會勝利，因此了解每個戰場的任務是重要的！必要時，甚至必須以生命完成目的。</p>
+			</div>
+			<div class="mission">
+				<ul>
+					<li>
+						<div class="label"><img src="./images/4_page_label.png"/></div>
+						<div class="vedio"><img src="./images/4_page_video1.png"/></div>
+						<div class="mask"><img src="./images/4_page_hover.png"/></div>
+					</li>
+					<li>
+						<div class="label"><img src="./images/4_page_label.png"/></div>
+						<div class="vedio"><img src="./images/4_page_video2.png"/></div>
+						<div class="mask"><img src="./images/4_page_hover.png"/></div>
+					</li>
+					<li>
+						<div class="label"><img src="./images/4_page_label.png"/></div>
+						<div class="vedio"><img src="./images/4_page_video3.png"/></div>
+						<div class="mask"><img src="./images/4_page_hover.png"/></div>
+					</li>
+					<li>
+						<div class="label"><img src="./images/4_page_label.png"/></div>
+						<div class="vedio"><img src="./images/4_page_video4.png"/></div>
+						<div class="mask"><img src="./images/4_page_hover.png"/></div>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<!--page five-->
 	<div class="contain_five">
 		<img class="bg" src="./images/5_page_bg.jpg"/>
+		<div class="five_person">
+			<img src="./images/5_page_person.png"/>
+		</div>
+		<div class="banner">
+			<div class="content">
+				<h1>守則5 實戰磨練</h1>
+				<p>了解所有的守則之後，最重要的還是實戰練習！立刻購買遊戲進入『鬥陣特攻』磨練戰技，捍衛這個世界。</p>
+				<button>立即購買</button><br/>
+			</div>
+			<div class="attachment">
+				<img src="./images/5_page_attachment.png"/>
+			</div>
+			<div class="vedio">
+				<img src="./images/5_page_vedio.png"/>
+			</div>
+		</div>
 	</div>
 	<!--page six-->
 	<div class="contain_six">
 		<img class="bg" src="./images/6_page_bg.jpg"/>
+		<div class="six_person">
+			<img src="./images/6_page_person.png"/>
+		</div>
+		<div class="banner">
+			<div class="content">
+				<p>了解教戰守則的你，已經是個合格的捍衛者了；透過以下方法，尋找更多捍衛者一起並肩作戰！</p>
+			</div>
+			<div class="attachment">
+				<span>加入捍衛者</span>
+				<img src="./images/6_page_attachment.png"/>
+			</div>
+			<div class="attachment2">
+				<p>召集朋友加入</p>
+				<button>分享教戰守則</button>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="logo">
+			<img src="./images/footer-logo.png"/>
+			
+		</div>
+		<div class="link">
+			<ul>
+				<li><a href="#">官方粉絲團</a></li>|<li><a href="#">官方網站</a></li>|<li><a href="#">下載遊戲</a></li>
+				<p>©2016 美商暴雪娛樂股份有限公司（Blizzard Entertainment, Inc.）版權所有。</p>
+			</ul>
+		</div>
+		<div class="gsrr">
+			<img src="./images/footer_gsrr.png"/>
+		</div>
 	</div>
 </body>
 </html>
