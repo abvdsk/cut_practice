@@ -1,0 +1,622 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+.nav{
+	position:fixed;
+	width:100%;
+	min-width:1350px;
+	background:black;
+	z-index:1;
+}
+.nav .logo{
+	padding:20px;
+	text-align:center;
+	background:#bf4040;
+	color:white;
+	width:15%;
+	font-size:25px;
+	font-weight:bold;
+	display:inline-block;
+}
+.nav ul{
+	list-style:none;
+	display:inline-block;
+	position:relative;
+	right:-50px;
+}
+.nav ul li{
+	display:inline-block;
+	margin:0 50px;
+}
+.nav ul li a{
+	text-decoration:none;
+	color:white;
+	transition:0.3s;
+}
+.nav ul li a:hover{
+	color:#b30000;
+}
+.nav ul li a.active{
+	color:#b30000;
+}
+.home{
+	width:100%;
+	min-width:1350px;
+	height:1000px;
+	background-image:url(./images/home_bg.jpg);
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-attachment:fixed;
+}
+.home .home_content{
+	position:relative;
+	color:white;
+	top:50%;
+	width:800px;
+	margin:0 auto;
+	transform:translateY(-50%);
+}
+.home .home_content h1{
+	font-size:75px;
+	border-bottom:1px solid white;
+	padding-bottom:50px;
+}
+.home .home_content span{
+	font-size:25px;
+	border-right:1px solid white;
+	padding:30px;
+	display:inline-block;
+}
+.home .home_content span:last-of-type{
+	border:none;
+}
+.home .home_content button{
+	background:#bf4040;
+	padding:10px;
+	position:absolute;
+	bottom:20px;
+	right:0px;
+	border:none;
+	width:150px;
+	color:white;
+	font-size:18px;
+	cursor:pointer;
+}
+.home .home_content button:hover{
+	background:#ac3939;
+}
+.conference{
+	position:relative;
+	background:#bf4040;
+	width:100%;
+	min-width:1350px;
+	height:800px;
+	color:white;
+}
+.conference .conference_content{
+	position:relative;
+	top:50%;
+	width:800px;
+	margin:0 auto;
+	transform:translateY(-50%);
+}
+.conference .conference_content h1{
+	font-size:70px;
+	padding-bottom:50px;
+	border-bottom:1px solid white;
+}
+.conference .conference_content span{
+	font-size:30px;
+	border-right:1px solid white;
+	display:inline-block;
+	padding:27px;
+}
+.conference .conference_content span:last-of-type{
+	border:none;
+}
+.conference .conference_content p{
+	margin-top:30px;
+	font-size:18px;
+	line-height:30px;
+}
+.conference .conference_content .to_speaker{
+	margin-top:30px;
+}
+.conference .conference_content .to_speaker a{
+	color:white;
+	font-size:25px;
+	text-decoration:none;
+}
+.conference .conference_content .to_speaker a img{
+	position:relative;
+	top:15px;
+}
+.horizon{
+	position:relative;
+	background:url(./images/horizon_bg.jpg);
+	width:100%;
+	min-width:1350px;
+	height:1000px;
+	color:white;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-attachment:fixed;
+}
+.horizon .horizon_content{
+	position:relative;
+	top:35%;
+	width:800px;
+	margin:0 auto;
+	transform:translateY(-50%);
+}
+.horizon .horizon_content h1{
+	font-size:70px;
+	padding-bottom:50px;
+	border-bottom:1px solid white;
+}
+.horizon .horizon_content h3{
+	font-size:30px;
+	margin:20px 0 30px 0;
+}
+.horizon .horizon_content p{
+	line-height:30px;
+	font-size:18px;
+}
+.horizon .horizon_footer{
+	background:url(./images/horizon_footer_bg.jpg);
+	background-repeat:repeat;
+	width:100%;
+	height:300px;
+	position:absolute;
+	bottom:0;
+	text-align:center;
+}
+.horizon .horizon_footer .horizon_footer_content{
+	position:relative;
+	top:50%;
+	width:800px;
+	margin:0 auto;
+	transform:translateY(-50%);
+	border-bottom:1px solid white;
+}
+.horizon .horizon_footer .horizon_footer_content p{
+	display:inline-block;
+	font-size:80px;
+	margin:0 35px;
+}
+.horizon .horizon_footer .horizon_footer_content span{
+	display:inline-block;
+	font-size:25px;
+	padding:20px 45px;
+	border-right:1px solid white;
+}
+.horizon .horizon_footer .horizon_footer_content span:last-of-type{
+	border:none;
+}
+.speaker{
+	width:100%;
+	min-width:1350px;
+	height:2000px;
+	position:relative;
+	color:white;
+}
+.speaker .top{
+	height:33%;
+	position:relative;
+	background:black;
+}
+.speaker .top .top_content{
+	position:relative;
+	margin:0 auto;
+	width:800px;
+	top:50%;
+	transform:translateY(-50%);
+}
+.speaker .top .top_content h1{
+	font-size:80px;
+	border-bottom:1px solid white;
+	padding-bottom:50px;
+}
+.speaker .top .top_content p{
+	font-size:25px;
+	margin:20px 0px;
+}
+.speaker .top .top_content .gallery{
+	width:30%;
+	position:relative;
+	cursor:pointer;
+	display:inline-block;
+	margin:12px;
+}
+.speaker .top .top_content .gallery img{
+	width:100%;
+}
+.speaker .top .top_content .gallery .cover{
+	width:100%;
+	height:99%;
+	position:absolute;
+	top:0;
+	text-align:center;
+	background:rgba(255,255,255,0.8);
+	color:black;
+	display:none;
+}
+.speaker .top .top_content .gallery .cover p{
+	margin:100px auto;
+	font-size:25px;
+}
+.speaker .top .top_content .gallery .cover p:last-of-type{
+	color:gray;
+}
+.speaker .medium{
+	height:33%;
+	position:relative;
+	background:#bf4040;
+}
+.speaker .medium .medium_content{
+	width:800px;
+	margin:0 auto;
+	position:relative;
+	top:50%;
+	transform:translateY(-50%);
+}
+.speaker .medium .medium_content h1{
+	font-size:70px;
+	border-bottom:1px solid white;
+	padding-bottom:50px;
+}
+.speaker .medium .medium_content img{
+	width:33%;
+}
+.speaker .bottom{
+	height:34%;
+	background:url(./images/sb_bg.jpg);
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-attachment:fixed;
+}
+.event{
+	width:100%;
+	min-width:1350px;
+	height:1500px;
+	position:relative;
+	color:white;
+	background:black;
+}
+.event .event_content{
+	position:relative;
+	margin:0 auto;
+	width:800px;
+	top:50%;
+	transform:translateY(-50%);
+}
+.event .event_content h1{
+	font-size:70px;
+	padding-bottom:50px;
+	border-bottom:1px solid white;
+}
+.event .event_content .show{
+	width:45%;
+	margin:20px 20px 20px 0;
+	display:inline-block;
+}
+.event .event_content .show:nth-of-type(even){
+	position:relative;
+	right:-58px;
+}
+.event .event_content .show a{
+	text-decoration:none;
+	margin-bottom:20px;
+	font-size:22px;
+	color:white;
+	display:block;
+}
+.event .event_content .show a:hover{
+	text-decoration:underline;
+}
+.event .event_content .show button{
+	border:1px solid #bf4040;
+	font-size:18px;
+	padding:10px;
+	margin-top:20px;
+	background:#bf4040;
+	color:white;
+	cursor:pointer;
+	transition:0.5s;
+}
+.event .event_content .show button:hover{
+	background:black;
+	border:1px solid white;
+}
+.rsvp{
+	width:100%;
+	min-width:1350px;
+	height:500px;
+	position:relative;
+	color:white;
+	background:#bf4040;
+}
+.rsvp .rsvp_content{
+	position:relative;
+	margin:0 auto;
+	width:800px;
+	top:50%;
+	transform:translateY(-50%);
+}
+.rsvp .rsvp_content h1{
+	font-size:70px;
+	padding-bottom:50px;
+	border-bottom:1px solid white;
+}
+.rsvp .rsvp_content .rsvp_left{
+	width:30%;
+	display:inline-block;
+}
+.rsvp .rsvp_content .rsvp_left p{
+	font-size:25px;
+	margin-bottom:20px;
+}
+.rsvp .rsvp_content .rsvp_left button{
+	font-size:18px;
+	width:150px;
+	color:#bf4040;
+	padding:10px 20px;
+	border:none;
+	cursor:pointer;
+}
+.rsvp .rsvp_content .rsvp_left button:hover{
+	background:lightgray;
+}
+.rsvp .rsvp_content .rsvp_right{
+	width:69%;
+	display:inline-block;
+	padding:20px 0 0 50px;
+	border-left:1px solid white;
+}
+.rsvp .rsvp_content .rsvp_right p{
+	font-size:20px;
+	margin-bottom:20px;
+}
+.rsvp .rsvp_content .rsvp_right input{
+	width:100%;
+	height:50px;
+	background:#bf4040;
+	border:1px solid white;
+	margin-bottom:20px;
+	color:white;
+	padding:10px;
+	font-size:20px;
+}
+.rsvp .rsvp_content .rsvp_right button{
+	color:#bf4040;
+	border:none;
+	width:100%;
+	height:50px;
+	cursor:pointer;
+	font-size:20px;
+}
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+	<title>HTML5標準頁面</title>
+<script src="jquery-3.0.0.min.js"></script>
+<script src="jquery.easing.1.3.js"></script>
+<script>
+$(function(){
+	//nav click
+	$('.nav ul li a').click(function(){
+		$(this).addClass('active').parent().siblings().find('a').removeClass('active');
+		switch($(this).html()){
+			case 'Home':
+				$('body').stop().animate({
+					scrollTop:$('.home').offset().top,
+				});
+				break;
+			case 'The Conference':
+				$('body').stop().animate({
+					scrollTop:$('.conference').offset().top,
+				});
+				break;
+			case 'Speakers':
+				$('body').stop().animate({
+					scrollTop:$('.speaker').offset().top,
+				});
+				break;
+			case 'Past Events':
+				$('body').stop().animate({
+					scrollTop:$('.event').offset().top,
+				});
+				break;
+			case 'RSVP':
+				$('body').stop().animate({
+					scrollTop:$('.rsvp').offset().top,
+				});
+				break;
+		}
+	});
+	//window scroll
+	$(window).scroll(function(){
+		if($(this).scrollTop()>=$('.home').offset().top && $(this).scrollTop()<$('.conference').offset().top){
+			$('.nav ul li').eq(0).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+		}else if($(this).scrollTop()>=$('.conference').offset().top && $(this).scrollTop()<$('.speaker').offset().top){
+			$('.nav ul li').eq(1).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+		}else if($(this).scrollTop()>=$('.speaker').offset().top && $(this).scrollTop()<$('.event').offset().top){
+			$('.nav ul li').eq(2).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+		}else if($(this).scrollTop()>=$('.event').offset().top && $(this).scrollTop()<$('.rsvp').offset().top){
+			$('.nav ul li').eq(3).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+		}else{
+			$('.nav ul li').eq(4).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+		}
+	});
+	// speaker gallery hover
+	$('.gallery').hover(function(){
+		$(this).find('.cover').stop().fadeIn();
+	},function(){
+		$(this).find('.cover').stop().fadeOut();
+	});
+});
+</script>
+</head>
+<body>
+	<div class="nav">
+		<div class="logo">Horizon</div>
+		<ul>
+			<li><a href="#" class="active">Home</a></li>
+			<li><a href="#">The Conference</a></li>
+			<li><a href="#">Speakers</a></li>
+			<li><a href="#">Past Events</a></li>
+			<li><a href="#">RSVP</a></li>
+		</ul>
+	</div>
+	<div class="home">
+		<div class="home_content">
+			<h1><p>Horizon Conference.</p><p>The Challenges of</p><p>Business Innovation</p></h1>
+			<span>03-04 April 2023</span>
+			<span>San Francisco</span>
+			<button>RSVP</button>
+		</div>
+	</div>
+	<div class="conference">
+		<div class="conference_content">
+			<h1>The Conference</h1>
+			<span>Two Days of Powerful Talks</span>
+			<span>03 April 2023</span>
+			<span>09:00 am</span>
+			<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.​ This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company.</p>
+			<p>Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</p>
+			<div class="to_speaker">
+				<a href="#"><img src="./images/arrow.png"/>Speakers</a>
+			</div>
+		</div>
+	</div>
+	<div class="horizon">
+		<div class="horizon_content">
+			<h1>About Horizon</h1>
+			<h3>What is Horizon?</h3>
+			<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you. This is a great space to write long text about your company and your services.</p>
+		</div>
+		<div class="horizon_footer">
+			<div class="horizon_footer_content">
+				<p>930</p>
+				<p>250</p>
+				<p>40</p>
+				<p>160</p>
+				<br/>
+				<span>Participants</span>
+				<span>Topics</span>
+				<span>Sessions</span>
+				<span>Speakers</span>
+			</div>		
+		</div>
+	</div>
+	<div class="speaker">
+		<div class="top">
+			<div class="top_content">
+				<h1>Speakers</h1>
+				<p>Proud to bring inspirational speakers from across the globe</p>
+				<div class="gallery">
+					<img src="./images/speaker1.jpg"/>
+					<div class="cover">
+						<p>Tony Selby</p>
+						<p>Director of Uprime</p>
+					</div>
+				</div>
+				<div class="gallery">
+					<img src="./images/speaker2.jpg"/>
+					<div class="cover">
+						<p>Rechel Froust</p>
+						<p>Co-Founder of Vide</p>
+					</div>
+				</div>
+				<div class="gallery">
+					<img src="./images/speaker3.jpg"/>
+					<div class="cover">
+						<p>Maria Sassoon</p>
+						<p>Coo of Tipox</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="medium">
+			<div class="medium_content">
+				<h1>Sponsors</h1>
+				<img src="./images/sm1.png"/>
+				<img src="./images/sm2.png"/>
+				<img src="./images/sm3.png"/>
+				<img src="./images/sm4.png"/>
+				<img src="./images/sm5.png"/>
+				<img src="./images/sm6.png"/>
+			</div>
+		</div>
+		<div class="bottom">
+		</div>
+	</div>
+	<div class="event">
+		<div class="event_content">
+			<h1>Past Events</h1>
+			<div class="show">
+				<a href="#">Designer's Embrace</a>
+				<img src="./images/e1.jpg"/>
+				<button>Read More</button>
+			</div>
+			<div class="show">
+				<a href="#">Rules for Responsive</a>
+				<img src="./images/e2.jpg"/>
+				<button>Read More</button>
+			</div>
+			<div class="show">
+				<a href="#">Responsive Life</a>
+				<img src="./images/e3.jpg"/>
+				<button>Read More</button>
+			</div>
+			<div class="show">
+				<a href="#">The Inspiration</a>
+				<img src="./images/e4.jpg"/>
+				<button>Read More</button>
+			</div>
+			<div class="show">
+				<a href="#">User Experience</a>
+				<img src="./images/e5.jpg"/>
+				<button>Read More</button>
+			</div>
+			<div class="show">
+				<a href="#">Graphs Mythology</a>
+				<img src="./images/e6.jpg"/>
+				<button>Read More</button>
+			</div>
+		</div>
+	</div>
+	<div class="rsvp">
+		<div class="rsvp_content">
+			<h1>RSVP</h1>
+			<div class="rsvp_left">
+				<p>RSVP for our next event. See you soon!</p>
+				<button>RSVP</button>
+			</div>
+			<div class="rsvp_right">
+				<p>Subscribe to get news on all upcoming events</p>
+				<input type="text" value="Email Address"/><br/>
+				<button>Subscribe Now</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
