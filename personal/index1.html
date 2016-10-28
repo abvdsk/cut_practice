@@ -21,6 +21,21 @@
 .nav:hover{
 	top:0;
 }
+.nav .mobile_nav_icon{
+	position:absolute;
+	right:10px;
+	cursor:pointer;
+	top:10px;
+	transition:0.3s;
+	display:none;
+}
+.nav .mobile_nav_icon:hover{
+	transform:scale(1.2,1.2);
+}
+.nav .mobile_nav_icon img{
+	width:40px;
+	height:40px;
+}
 .nav .logo{
 	color:white;
 	font-size:25px;
@@ -50,6 +65,40 @@
 	position:relative;
 }
 .nav ul li a.active p{
+	color:#d98c8c;
+}
+.mobile_nav{
+	position:fixed;
+	top:60px;
+	width:100%;
+	z-index:2;
+	background:rgba(0,0,0,0.8);
+	text-align:center;
+	display:none;
+}
+.mobile_nav li{
+	position:relative;
+	height:20px;
+	border-bottom:1px solid white;
+	margin:10px;
+	overflow:hidden;
+}
+.mobile_nav li:hover p{
+	top:-20px;
+}
+.mobile_nav li:last-child{
+	border:none;
+}
+.mobile_nav li a{
+	text-decoration:none;
+}
+.mobile_nav li a p{
+	position:relative;
+	color:white;
+	transition:0.3s;
+	top:0;
+}
+.mobile_nav li a.active p{
 	color:#d98c8c;
 }
 .home{
@@ -501,6 +550,17 @@
 		font-size:15px;
 	}
 }
+@media screen and (max-width:520px){
+	.nav{
+		top:0px;
+	}
+	.nav ul{
+		display:none;
+	}
+	.nav .mobile_nav_icon{
+		display:block;
+	}
+}
 </style>
 <head>
 	<meta charset="utf-8"/>
@@ -575,6 +635,25 @@ $(function(){
 				break;
 		}
 	});
+	$('.mobile_nav li a').click(function(){
+		switch($(this).find('p').html()){
+			case 'SKILL':
+				$('body').animate({
+					scrollTop:$('.skill').offset().top,
+				});
+				break;
+			case 'WEB DESIGN':
+				$('body').animate({
+					scrollTop:$('.web_design').offset().top,
+				});
+				break;
+			case 'ABOUT':
+				$('body').animate({
+					scrollTop:$('.about').offset().top,
+				});
+				break;
+		}
+	});
 	//window滾動
 	$(window).scroll(function(){
 		if($(this).scrollTop()>($('.home_logo').offset().top+$('.home_logo').height())){
@@ -582,22 +661,32 @@ $(function(){
 				background:'rgba(0,0,0,0.7)',
 				boxShadow:'0 3px 5px gray',
 			}).find('.logo').css('visibility','visible');
+			$('.mobile_nav').css({
+				background:'rgba(0,0,0,0.7)',
+			});
 		}else{
 			$('.nav').css({
 				background:'rgba(255,255,255,0.2)',
 				boxShadow:'none',
 			}).find('.logo').css('visibility','hidden');
+			$('.mobile_nav').css({
+				background:'rgba(255,255,255,0.2)',
+			});
 		}
 		if($(this).scrollTop()>($('.skill').offset().top-$('.home').height()/2) &&
 		   $(this).scrollTop()<=($('.web_design').offset().top-$('.skill').height()/2)){
 			$('.nav ul li').eq(0).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+			$('.mobile_nav li').eq(0).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
 		}else if($(this).scrollTop()>($('.web_design').offset().top-$('.skill').height()/2) &&
 		   $(this).scrollTop()<=($('.about').offset().top-$('.web_design').height()/2)){
 			$('.nav ul li').eq(1).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+			$('.mobile_nav li').eq(1).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
 		}else if($(this).scrollTop()>($('.about').offset().top-$('.web_design').height()/2)){
 			$('.nav ul li').eq(2).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
+			$('.mobile_nav li').eq(2).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
 		}else{
 			$('.nav ul li').find('a').removeClass('active');
+			$('.mobile_nav li').find('a').removeClass('active');
 		}
 	});
 	//mask
@@ -680,6 +769,15 @@ $(function(){
 		$('.mask .mask_content .mask_info').css({
 			top:-$('.mask .mask_content .mask_img').height()+$('.mask_info').height(),
 		});
+		if($('body').width()>520){
+			$('.mobile_nav').css({
+				display:'none',
+			});
+		}
+	});
+	//mobile_nav
+	$('.mobile_nav_icon').click(function(){
+		$('.mobile_nav').slideToggle();
 	});
 	
 });
@@ -688,12 +786,18 @@ $(function(){
 <body>
 	<div class="nav">
 		<div class="logo">Philip's Design</div>
+		<div class="mobile_nav_icon"><img src="./images/mobile_icon.png"/></div>
 		<ul>
 			<li><a href="#"><p>SKILL</p><p>技能</p></a></li>
 			<li><a href="#"><p>WEB DESIGN</p><p>網頁設計</p></a></li>
 			<li><a href="#"><p>ABOUT</p><p>關於我</p></a></li>
 		</ul>
 	</div>
+	<ul class="mobile_nav">
+		<li><a href="#"><p>SKILL</p><p>技能</p></a></li>
+		<li><a href="#"><p>WEB DESIGN</p><p>網頁設計</p></a></li>
+		<li><a href="#"><p>ABOUT</p><p>關於我</p></a></li>
+	</ul>
 	<div class="home">
 		<div class="home_logo">
 			<div class="home_logo_inner"><h1>Philip's Design</h1><h1>蔡賢璟 設計</h1></div>
