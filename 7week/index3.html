@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+*{
+  font-family:微軟正黑體;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  position:relative;
+}
+html,body{
+  height:100%;
+  background:#ccc;
+}
+.namecard{
+  width:400px;
+  height:250px;
+  top:50%;
+  transform:translateY(-50%);
+  margin:0 auto;
+  border:1px solid rgba(0,0,0,0.5);
+  border-radius:5px;
+  padding:10px;
+  background:url(./images/nice.png);
+  background-repeat:no-repeat;
+  background-position:50px 12px;
+  background-color:white;
+  overflow:hidden;
+  box-shadow:0px 0px 5px rgba(0,0,0,0.8);
+  cursor:pointer;
+  transition:0.3s;
+}
+.namecard .title{
+  color:#ed9209;
+  text-align:center;
+  font-weight:900;
+  letter-spacing:7px;
+}
+.namecard .eng_title{
+  text-align:center;
+}
+
+.namecard .left{
+  text-indent:38px;
+  margin-top:5px;
+}
+.namecard .name{
+  margin:20px;
+}
+.namecard .name span{
+  font-size:15px;
+  font-weight:500;
+}
+.namecard p{
+  color:green;
+}
+.namecard .circle{
+	position:absolute;
+	z-index:5;
+	border-radius:50%;
+}
+.namecard .circle1{
+	width:100px;
+	height:100px;
+	background:#ed9209;
+	bottom:-60px;
+	right:20px;
+	transition:0.3s;
+}
+.namecard .circle2{
+	width:80px;
+	height:80px;
+	border:3px solid #ed9209;
+	top:-40px;
+	right:-40px;
+	transition:0.3s;
+}
+.namecard:hover{
+	box-shadow:10px 10px 20px rgba(0,0,0,1);
+}
+.namecard:hover .circle1{
+	bottom:-50px;
+	right:20px;
+}
+.namecard:hover .circle2{
+	top:-30px;
+	right:-30px;
+}
+
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+	<title>HTML5標準頁面</title>
+<script src="jquery-3.0.0.min.js"></script>
+<script src="jquery.easing.1.3.js"></script>
+<script>
+$(function(){
+
+});
+</script>
+</head>
+<body>
+	<div class="namecard">
+	  <h2 class="title">耐斯企業</h2>
+	  <h3 class="eng_title">NICE ETERPRISE GROUP CO., LTD.</h3>
+	  <h4 class="left">資訊中心</h4>
+	  <h3 class="left name">黃士墐<span>(Huang Shih-Jin)</span></h3>
+	  <p class="left">手機:0956331568</p>
+	  <p class="left">Email:huangta@mail.nice.com.tw</p>
+	  <p class="left">地址:嘉義縣中山路21號</p>
+	  <div class="circle circle1"></div>
+	  <div class="circle circle2"></div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
