@@ -50,6 +50,36 @@
 		text-align: center;
 		font-size: 18px;
 	}
+	.content-header>li:nth-of-type(1){
+		width:7%;
+	}
+	.content-header>li:nth-of-type(2){
+		width:7%;
+	}
+	.content-header>li:nth-of-type(5){
+		width:13%;
+	}
+	.content-header>li:nth-of-type(6){
+		width:7%;
+	}
+	.content-header>li:nth-of-type(8){
+		width:20%;
+	}
+	.content-body>li:nth-of-type(1){
+		width:7%;
+	}
+	.content-body>li:nth-of-type(2){
+		width:7%;
+	}
+	.content-body>li:nth-of-type(5){
+		width:13%;
+	}
+	.content-body>li:nth-of-type(6){
+		width:7%;
+	}
+	.content-body>li:nth-of-type(8){
+		width:20%;
+	}
 	.content-body>li{
 		background-color:#b6dbaf;
 		width:10%;
@@ -64,6 +94,11 @@
 	}
 	.content-body>li:hover{
 		background-color: #9fa8b7;
+		transform: scale(1.5);
+		z-index: 1;
+		box-shadow: 5px 5px 10px black;
+		border:3px solid white;
+		color:white;
 	}
 	a{
 		text-decoration: none;
@@ -90,25 +125,24 @@
 		color:blue;
 		font-weight: bold;
 	}
+	@media screen and (max-width: 1200px) {
+    	.content-header>li{
+    		font-size: 15px;
+    	}
+	}
+	@media screen and (max-width: 1050px) {
+    	.content-header>li{
+    		font-size: 12px;
+    	}
+	}
+	@media screen and (max-width: 850px) {
+    	.content-header>li{
+    		padding:5px 0 5px 0;
+    	}
+	}
 </style>
 <script>
-	// $(function(){
-	// 	//alert($('.content-body>li').height());
-	// 	var zIndex = 1;
-	// 	$('.content-body>li').hover(function(){
-	// 		zIndex++;
-	// 		$(this).css('zIndex',zIndex).stop().animate({
-	// 			width:150,
-	// 			height:150
-	// 		});
-	// 	},function(){
-	// 		zIndex--;
-	// 		$(this).css('zIndex',zIndex).stop().animate({
-	// 			width:111,
-	// 			height:78
-	// 		});
-	// 	});
-	// });
+	
 </script>
 <body>
 	<div class="header">2017春節-高雄之旅</div>
@@ -174,23 +208,22 @@
 				<li>17:00</li>
 				<li>承億輕旅-高雄</li>
 				<li>高雄市新興區中山一路145號</li>
-				<li style="color:red;">不知是否有停車場?</li>
-				<li style="color:red;">阿災多少錢</li>
-				<li style="color:red;">查無幾點可CHECK IN</li>
-				<li style="color:red;">有無晡逼專用洗澡盆??</li>
+				<li>附近找停車位</li>
+				<li>$2500</li>
+				<li>15:00後可check in</li>
+				<li>有準備晡逼澡盆</li>
 				<li><a href="http://twinkler.pixnet.net/blog/post/453338534-%7C-%E9%AB%98%E9%9B%84-%7C-%E6%89%BF%E5%84%84%E9%9B%86%E5%9C%98%E6%9C%80%E6%96%B0%E5%8A%9B%E4%BD%9C!!---light-hostel-%E6%89%BF%E5%84%84">承億高雄</a></li>
 			</ul>
 			<ul class="content-body">
 				<li></li>
 				<li>19:00</li>
-				<li>夜市(瑞豐、凱旋、金鑽、青年
-				)</li>
+				<li>六合夜市</li>
+				<li> 800高雄市新興區六合二路</li>
+				<li>從旅館走過去</li>
 				<li></li>
+				<li>1700~0100</li>
 				<li></li>
-				<li></li>
-				<li></li>
-				<li style="color:red;">查網路禮拜一只有凱旋夜市有營業，不知春節期間是否也是如此??</li>
-				<li></li>
+				<li><a href="http://carriewang.pixnet.net/blog/post/28649427-%E3%80%90%E9%AB%98%E9%9B%84%E5%85%AD%E5%90%88%E5%A4%9C%E5%B8%82%E3%80%91%E5%BF%85%E5%90%83%E5%B0%8F%E5%90%83%E7%BE%8E%E9%A3%9F%E6%8E%A8%E8%96%A6%E3%80%82%E9%84%AD%E8%80%81%E7%89%8C">六合夜市必吃</a></li>
 			</ul>
 			<ul class="content-body">
 				<li></li>
@@ -211,8 +244,19 @@
 				<li></li>
 				<li></li>
 				<li></li>
-				<li>早餐時間(飯店應該有附早餐吧??)</li>
+				<li>Check out</li>
 				<li></li>
+			</ul>
+			<ul class="content-body">
+				<li></li>
+				<li>08:00</li>
+				<li>早餐-櫻花早餐店</li>
+				<li>800高雄市新興區南台路51號</li>
+				<li></li>
+				<li></li>
+				<li>0730–0200</li>
+				<li>丹丹漢堡七賢店、<a href="http://converse101.pixnet.net/blog/post/308471454-%E3%80%90%E9%A3%9F%E8%A8%98%E2%94%82%E9%AB%98%E9%9B%84%E5%89%8D%E9%87%91%E3%80%91%E8%80%81%E5%BA%97%E8%88%88%E9%9A%86%E5%B1%85~%E6%8E%92%E9%9A%8A%E7%9A%84%E5%82%B3%E7%B5%B1">興隆居</a>、<a href="http://bow.foxpro.com.tw/mblog.php?lid=2013%2F09%2F19_3VT0X2U7R&sid=2013%2F09%2F19_3VT0X4DXW&pid=2014%2F09%2F01_45J0034TE">老江紅茶牛奶</a></li>
+				<li><a href="http://bow.foxpro.com.tw/mblog.php?lid=2013%2F09%2F19_3VT0X2U7R&sid=2013%2F09%2F19_3VT0X4DXW&pid=2014%2F09%2F01_45J0034TE">櫻花早餐店食記</a></li>
 			</ul>
 			<ul class="content-body">
 				<li></li>
@@ -222,7 +266,7 @@
 				<li><a href="http://zoo.kcg.gov.tw/?pn=view&id=h75t47x34n61&gid=480">$15/0.5hr停車資訊</a></li>
 				<li>$40/人</li>
 				<li>0900~1700</li>
-				<li style="color:red;">禮拜一公休，但春節應該都有開放，待確認</li>
+				<li><a href="http://zoo.kcg.gov.tw/?pn=view&id=mg3u14j099e4">春節不打烊，每日有活動!</a></li>
 				<li><a href="http://zoo.kcg.gov.tw/">壽山動物園</a></li>
 			</ul>
 			<ul class="content-body">
@@ -245,7 +289,7 @@
 				<li></li>
 				<li></li>
 				<li></li>
-				<li><a href="http://nellydyu.pixnet.net/blog/post/37301097-%E3%80%8E%E9%A3%9F%E8%A8%98%E3%80%8F%E9%AB%98%E9%9B%84%E6%96%B0%E8%88%88-%E4%BC%B4%E6%89%8B%E7%A6%AE%E3%80%82%E4%B8%8D%E4%BA%8C%E5%AE%B6%E8%80%81%E5%AD%97%E8%99%9F%E4%BC%B4">不二家</a>、待補...</li>
+				<li><a href="http://nellydyu.pixnet.net/blog/post/37301097-%E3%80%8E%E9%A3%9F%E8%A8%98%E3%80%8F%E9%AB%98%E9%9B%84%E6%96%B0%E8%88%88-%E4%BC%B4%E6%89%8B%E7%A6%AE%E3%80%82%E4%B8%8D%E4%BA%8C%E5%AE%B6%E8%80%81%E5%AD%97%E8%99%9F%E4%BC%B4">不二家</a>、<a href="http://sunyat.pixnet.net/blog/post/56294778-%E9%AB%98%E9%9B%84-%E7%81%AB%E6%98%9F%E7%B3%96-marscandy(%E4%B8%AD%E5%A4%AE%E5%85%AC%E5%9C%92%E5%BA%97)-%7C-%E9%9C%9C%E6%B7%87%E6%B7%8B%E7%9C%9F">火星糖-中央公園店</a>、<a href="http://nellydyu.pixnet.net/blog/post/41633629-%E8%B6%85%E5%A4%AF%E4%BC%B4%E6%89%8B%E7%A6%AE%E9%A6%96%E9%81%B8-%E6%89%93%E7%8B%97%E9%A4%85%E9%8B%AA%E4%B9%8B%E9%AB%98%E9%9B%84%E5%9C%A8%E5%9C%B0%E4%BC%B4%E6%89%8B%E7%A6%AE">打狗餅舖</a></li>
 			</ul>
 		</ul>
 	</div>
