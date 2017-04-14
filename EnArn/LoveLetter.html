@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EnArn</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<script src="jquery-3.0.0.min.js"></script>
+<style>
+	*{
+		font-family: 微軟正黑體;
+		box-sizing: border-box;
+		position: relative;
+	}
+	body{
+		margin:0;
+		padding: 0;
+		width:100%;
+		height:100%;
+		position: fixed;
+		left:0;
+		top:0;
+		background-color: #eaebed;
+	}
+	.loveletter{
+		border:2px solid grey;
+		width:280px;
+		height:180px;
+		min-width: 250px;
+		left:50%;
+		top:50%;
+		transform: translate(-50%,-50%);
+		border-radius: 5px;
+	}
+	.loveletter .leftbar{
+		width:57%;
+		position: absolute;
+		border:1px solid grey;
+		transform: rotate(30deg);
+		top:40px;
+		left:-10px;
+	}
+	.loveletter .rightbar{
+		width:57%;
+		position: absolute;
+		border:1px solid grey;
+		transform: rotate(-30deg);
+		top:40px;
+		right:-10px;
+	}
+	.loveletter .love{
+		position: absolute;
+		left:50%;
+		top:55px;
+		transform: translateX(-50%);
+	}
+	.loveletter .love i{
+		color:red;
+		cursor:pointer;
+	}
+	.loveletter .title{
+		position: absolute;
+		right:5px;
+		bottom:0;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.lettercontent{
+		position: absolute;
+		width:30%;
+		min-width:300px;
+		border:2px solid grey;
+		padding:10px;
+		left:50%;
+		top:100px;
+		transform: translateX(-50%);
+		display: none;
+	}
+	.lettercontent .row{
+		height:30px;
+		border-bottom: 1px dashed grey;
+		line-height: 30px
+	}
+	.lettercontent .row:first-of-type{
+		text-indent: 15px;
+		font-weight: bold;
+		font-size: 18px;
+	}
+	.lettercontent .row:last-of-type{
+		border:none;
+	}
+	.lettercontent .row .sig{
+		position: absolute;
+		right:10px;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.close{
+		position: absolute;
+		right:10px;
+		top:5px;
+		width:30px;
+		height:30px;
+		text-align: center;
+		font-size: 20px;
+		cursor: pointer;
+		z-index: 1;
+		transition: 0.2s;
+	}
+	.close:hover{
+		transform: scale(1.2);
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		$('.love').on('click',function(){
+			$('.loveletter').fadeOut();
+			$('.lettercontent').fadeIn();
+		});
+		$('.close').on('click',function(){
+			$('.lettercontent').fadeOut();
+			$('.loveletter').fadeIn();
+		});
+	});
+</script>
+<body>
+	<div class="loveletter">
+		<div class="leftbar"></div>
+		<div class="rightbar"></div>
+		<div class="love"><i class="fa fa-heart fa-3x" aria-hidden="true"></i></div>
+		<div class="title">ㄢㄢ老師收</div>
+	</div>
+	<div class="lettercontent">
+		<div class="close">X</div>
+		<div class="row">英安：</div>
+		<div class="row">當幼稚園老師真的要很喜歡小孩子吧！自己有了小孩之後，才知道帶小孩是多麼不容易的事情，尤其是妳還要帶一大堆的小孩。。。。。。這封信若能讓妳在忙碌工作中帶來點小開心，就像是收到小孩子的餅乾跟情書，那麼它就達成它的目地囉。by the way，昨晚說到的照片還算數嗎？</div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row"><div class="sig">前端哥</div></div>
+	</div>
+</body>
+</html>
