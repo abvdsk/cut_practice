@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>排列組合</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+</head>
+<style>
+	*{
+		font-family: "微軟正黑體";
+	}
+	.main{
+		text-align: center;
+	}
+</style>
+<body>
+	<div class="main">
+		請輸入一個正整數<input type="text" class="number"><br/><br/>
+		取重複結果為:<div class="answer"></div>
+		不取重複結果為:<div class="answer1"></div>
+	</div>
+</body>
+<script>
+	$(function(){
+		
+		$('.number').blur(function(){
+			$('.answer').html('');
+			var answer = [];
+			var answer1  =[];
+			if($(this).val()<=0){
+				$('.answer').html('<p style="color:red;">請輸入正整數!!</p>');
+			}else{
+				for(var i=1;i<=$(this).val();i++){
+					for(j=1;j<=$(this).val();j++){
+						if(i!=j){
+							answer.push([i,j]);
+							if(j>i){
+								answer1.push([i,j]);
+							}
+						}
+					}
+				}
+			}
+			var answer_html = '';
+			for(var k=0;k<answer.length;k++){
+				answer_html += '('+answer[k]+')';
+			}
+			$('.answer').html(answer_html);
+			var answer1_html = '';
+			for(var l=0;l<answer1.length;l++){
+				answer1_html += '('+answer1[l]+')';
+			}
+			$('.answer1').html(answer1_html);
+		});
+	});
+</script>
+</html>
